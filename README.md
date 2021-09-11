@@ -1,3 +1,3 @@
 # OOindeul
 
-created for unist submission
+created for UNIST submission
