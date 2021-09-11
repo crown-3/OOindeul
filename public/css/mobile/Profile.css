@@ -1,0 +1,284 @@
+@font-face {
+    src: url("/font/NanumSquareB.ttf");
+    src: url("/font/NanumSquareEB.ttf");
+    src: url("/font/NanumSquareL.ttf");
+    src: url("/font/NanumSquareR.ttf");
+    font-family: "나눔스퀘어";
+}
+
+:focus {
+    outline: none;
+}
+
+* {
+    font-family: 나눔스퀘어;
+    --bg-primaryvar: #F6C700;
+    --bg-secondary: #000;
+    --bg-A: #b49300;
+    --bg-default: #fff;
+    --bg-input: #262626;
+    --bg-input2: #3B3B3B;
+    --bg-inputpr: #707070;
+    --bg-light1: #A2A2A2;
+    --bg-discord: #586AEA;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #F6C700;
+}
+
+/* li, a, button {
+    font-family: 나눔스퀘어;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+} */
+
+
+
+.belt {
+    width: 100vw;
+    background: var(--bg-secondary);
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.belt svg {
+    height: 30px;
+    width: auto;
+}
+
+.logo {
+    cursor: pointer;
+    width: 50px;
+    transition: .1s;
+}
+
+#main {
+    min-height: calc(100vh - 54px - 90px);
+}
+
+.logopng {
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.logopng img {
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-title {
+    font-weight: 900;
+    font-size: 25px;
+    text-align: center;
+}
+
+.boldline {
+    border-bottom: 2px solid var(--bg-inputpr);
+    margin: 10px auto 10px auto;
+    width: 90%;
+}
+
+.first-profile-list {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
+
+.second-profile-list {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 0 auto 0 auto;
+}
+
+.profile-f {
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 5vw;
+}
+
+.profile-f-info {
+    font-size: 13px;
+    text-align: right;
+    border-radius: 0;
+    margin-right: 10px;
+}
+
+.profile-f-input {
+    width: 25vw;
+    font-size: 11px;
+    text-align: center;
+    border: 0.5px solid var(--bg-inputpr);
+    border-radius: 0;
+}
+
+.profile-s-input{
+    width: 50vw;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 0;
+}
+
+.vertical-thin-line {
+    border-right: 1px solid var(--bg-inputpr);
+}
+
+.thinline {
+    border-bottom: 1px solid var(--bg-inputpr);
+    margin: 10px auto 10px auto;
+    width: 90%;
+}
+
+.form-area {
+    text-align: center;
+}
+
+.verify-password {
+    width: 60vw;
+    font-size: 11px;
+    text-align: center;
+    border: 0.5px solid var(--bg-inputpr);
+    border-radius: 10px;
+    margin: 0 auto 0 auto;
+}
+
+.verify-password-des {
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.save-changes {
+    border: 2px solid var(--bg-inputpr);
+    border-radius: 13px;
+    background: var(--bg-default);
+    color: var(--bg-inputpr);
+    font-weight: none;
+    font-size: 10px;
+    width: 105px;
+    height: 22px;
+    margin-top: 10px;
+}
+
+.permission-show-wrap {
+    font-weight: bold;
+    text-align: center;
+}
+
+.permission {
+    font-size: 20px;
+}
+
+.account_settings_title{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.setting_wrap{
+    display:flex;
+    justify-content:space-between;
+    width:70%;
+    margin: 5px auto 5px auto;
+}
+
+.setting_des{
+    width:85%;
+    margin: 5px auto 5px auto;
+    font-size: 12px;
+    color:var(--bg-inputpr);
+}
+
+.setting_name{
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.extra {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.go-discord {
+    border: 2px solid var(--bg-discord);
+    border-radius: 13px;
+    background: var(--bg-discord);
+    color: var(--bg-default);
+    font-weight: bold;
+    font-size: 10px;
+    width: 150px;
+    height: 22px;
+    margin: 10px auto;
+}
+
+.go-CP {
+    border: 2px solid var(--bg-secondary);
+    border-radius: 13px;
+    background: var(--bg-secondary);
+    color: var(--bg-primaryvar);
+    font-weight: bold;
+    font-size: 10px;
+    width: 130px;
+    height: 22px;
+    margin: 10px auto;
+}
+
+.extra2 {
+    margin: 0 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.extra-options {
+    border: 2px solid var(--bg-inputpr);
+    border-radius: 13px;
+    background: var(--bg-default);
+    color: var(--bg-inputpr);
+    font-weight: bold;
+    font-size: 10px;
+    width: 105px;
+    height: 22px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.bottom {
+    border-top: var(--bg-primaryvar) solid 4px;
+    width: 100%;
+    height: 90px;
+    text-align: center;
+    background: var(--bg-secondary);
+    color: #b6b6b6;
+    font-size: 10px;
+}
+
+.bottomtext {
+    padding-top: 15px;
+}

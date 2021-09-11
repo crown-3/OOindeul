@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/css/mobile/send-report.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(() => {
+            $(document).click(() => {
+                if ($("#report-radio9")[0].checked) {
+                    $(".etc")[0].disabled = false;
+                } else {
+                    $(".etc")[0].disabled = true;
+                }
+            });
+            $(".report-button").click(() => {
+                if (confirm("신고를 접수하시겠습니까?")) {
+                    $.post(`/report`, {
+                        content: $(".etc").val(),
+                        id: window.location.pathname.split("/")[2]
+                    }, 'text')
+                        .done(function (articles) {
+                            alert("신고를 접수하였습니다.");
+                            window.location.href = `/recommend/${window.location.pathname.split("/")[2]}`
+                        })
+                        .fail(function (err) {
+                            alert(`요청을 보내는 도중 문제가 발생했습니다. : ${err}`);
+                            $(".board-reply-send").attr("disabled", false);
+                        });
+                } else {
+                    alert("신고가 취소되었습니다.");
+                }
+            });
+        });
+        //  etc
+    </script>
+    <%- include("../modules/header_m.ejs") %>
+        <%- include("../modules/header_m_script.ejs") %>
+            <div id="main">
+                <div class="report-form">
+                    형태 : <span id="form">Not Found</span>
+                    <!--건의의 경우 '건의', 댓글의 경우 '댓글', 자유게시판 글의 경우 '게시글'-->
+                </div>
+                <div class="report-title">
+                    '<span id="title">
+                        <%= article.title %>
+                    </span>'
+                </div>
+                <div class="report-info">
+                    <span id="writer">작성자</span>
+                    <!--건의의 경우 건의자로-->
+                    <span> : </span>
+                    <span id="writername">
+                        <%= user.number%> [<%= user.name %>]
+                    </span>
+                    <!--작성자 학번이름-->
+                    <span id="date">
+                        <%= article.date %>
+                    </span>
+                    <!--글 작성날짜-->
+                </div>
+                <div class="report-subtitle">신고하기</div>
+                <!--건들지마-->
+                <div class="re-line"></div>
+                <div class="report-reason">
+                    <span>&#60; 일반적 사유 &#62;</span>
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    폭력적 또는 혐오스러운 컨텐츠 (욕설)
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio">
+                                    <input type="radio" id="report-radio" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    증오 또는 악의적인 컨텐츠
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio2">
+                                    <input type="radio" id="report-radio2" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    타인 또는 학교의 명예 훼손
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio3">
+                                    <input type="radio" id="report-radio3" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    거짓 컨텐츠
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio4">
+                                    <input type="radio" id="report-radio4" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    동일한 내용의 게시물 도배
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio5">
+                                    <input type="radio" id="report-radio5" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    광고성 컨텐츠
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio6">
+                                    <input type="radio" id="report-radio6" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    사전 동의 없는 개인정보 유포
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio7">
+                                    <input type="radio" id="report-radio7" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+
+                    <div class="report-general-reason-lists">
+                        <div class="dashed-line"></div>
+
+                        <div class="report-content-wrap-1">
+
+                            <div class="report-lists-left">
+                                <div class="circle"></div>
+                                <div class="report-general-classify">
+                                    의미 없거나 과도하게 비현실적 건의 내용
+                                </div>
+                            </div>
+                            <div class="report-lists-right">
+                                <label for="report-radio8">
+                                    <input type="radio" id="report-radio8" name="report-radio-field"
+                                        class="report-radioA">
+                                    <div class="actual-radio"></div>
+                                </label>
+                                <div class="circle"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashed-line"></div>
+                    </div>
+
+                </div>
+
+                <div class="report-reason">
+                    <span>&#60; 기타 사유 &#62;</span>
+
+                    <div class="report-extra-reason-input">
+                        <label for="report-radio9">
+                            <input type="radio" id="report-radio9" name="report-radio-field" class="report-radioA">
+                            <div class="actual-radio"></div>
+                        </label>
+                        <input class="etc" type="text" placeholder="여기에 기타 사유 입력...">
+                    </div>
+
+                    <div class="report-des">
+                        신고가 접수되면 학생회 규정 'OO인들' 조항에 따라 M 권한 소지자가
+                        본 신고사항을 검토한 후 징계 조치를 취하는 것에 대해서 판단할 것입니다.
+                    </div>
+
+                    <input type="button" value="신고 접수" class="report-button">
+
+                </div>
+            </div>
+
+            <%- include("../modules/bottom_m.ejs") %>
+</body>
+
+</html>

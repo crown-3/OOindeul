@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/mobile/Login.css">
+    <script>
+
+        const eventEdit = function (type) {
+            let t = type ? "removeEventListener" : "addEventListener"
+            document.querySelector("#pw")[t]("keydown", (event) => {
+                if (event.key == "Enter") {
+                    sendPost();
+                };
+            });
+            document.querySelector("#submit").removeEventListener("click", (ele) => {
+                sendPost();
+            });
+        }
+
+        const sendPost = function () {
+            eventEdit(true);
+            try {
+                let inputs = document.getElementsByTagName("input");
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/login", true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({
+                    id: inputs[0].value,
+                    pw: inputs[1].value
+                }));
+
+                xhr.onreadystatechange = function () {
+                    if (this.readyState != 4) return;
+                    if (this.status == 200) {
+                        if (this.responseText == "Allow") {
+                            if (window.location.pathname == "/login") return location.href = "/"
+                            return window.location = window.location.pathname.replace(/%E2%80%BB/g, "/").replace("/login/", "");
+                        } else {
+                            return alert("신청된 데이터중 잘못된 데이터가 존재합니다.");
+                        }
+                    };
+                    eventEdit(false);
+                };
+            } catch (e) {
+                alert(`로그인을 요청하는 도중 오류가 발생했습니다.\n${e}`)
+                eventEdit(false);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", (async () => {
+            document.querySelector("#pw").addEventListener("keydown", (event) => {
+                if (event.key == "Enter") {
+                    sendPost();
+                };
+            });
+
+            document.querySelector("#submit").addEventListener("click", (ele) => {
+                sendPost();
+            });
+        }));
+    </script>
+</head>
+
+<body>
+    <!-- <form action="/login" method="POST"> -->
+    <img src="/images/GeneralLogo.png" class="Logo">
+    <div class="header">
+        <b>OO인들</b>
+    </div>
+    <div class="txtb">
+        <input name="id" type="text" placeholder="아이디">
+    </div>
+    <div class="txtb">
+        <input name="pw" id="pw" type="password" placeholder="비밀번호">
+    </div>
+    <div class="submit">
+        <input type="submit" id="submit" value="로그인">
+    </div>
+    <div class="add">
+        <a href="/signup" id="signup">회원가입</a> / <a href="/pwchange" id="find">비밀번호 찾기</a> / <a href="/idfind" id="find">아이디 찾기</a>
+    </div>
+    <!-- </form> -->
+</body>
+
+</html>

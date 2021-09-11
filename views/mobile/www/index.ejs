@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/css/mobile/index.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#317EFB" />
+    <link rel="apple-touch-icon" href="/images/icon.png">
+</head>
+
+<body>
+
+
+    <script type="text/javascript">
+        function animation(ele) {
+            let list = [
+                {
+                    head: "OO인들",
+                    shead: "에 온 것을 환영합니다!",
+                    con: "OO인들은 OOOO고등학생 개발자 두 명이 만든<br> 교내 소통 및 학생자치용 웹 서비스입니다.",
+                    run(i) {
+                        if (i == "head") {
+                            $(`.content-${i}`).animate({ opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else if (i == "shead") {
+                            $(`.content-${i}`).animate({ opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else {
+                            $(`.content-${i}`).animate({ opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        }
+                    }
+                },
+                {
+                    head: "접근하려면",
+                    shead: "상단 로고 버튼을 눌러 보세요",
+                    con: "메뉴 맵이 튀어나올 거에요.<br> (솔직히 이건 정말 자랑하고 싶더군요)",
+                    run(i) {
+                        if (i == "head") {
+                            $(`.content-${i}`).animate({ "marginLeft": "80px", opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { "marginLeft": "0px", opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else if (i == "shead") {
+                            $(`.content-${i}`).animate({ "marginRight": "75px", opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { "marginRight": "0px", opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else {
+                            $(`.content-${i}`).animate({ "marginLeft": "60px", opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { "marginLeft": "0", opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        }
+                    }
+                },
+                {
+                    head: "소통하세요",
+                    shead: "그러라고 만든 웹입니다",
+                    con: "여기 있는 모든 기능은 오로지<br> OOOO고등학생들의 상호 소통을 위하여.",
+                    run(i) {
+                        if (i == "head") {
+                            $(`.content-${i}`).animate({ opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else if (i == "shead") {
+                            $(`.content-${i}`).animate({ opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else {
+                            $(`.content-${i}`).animate({ opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        }
+                    }
+                },
+                {
+                    head: "버그 있어요?",
+                    shead: "그러면 제보해주세요",
+                    con: "피드백 탭에 들어가시면<br>저희 개발자와 연락할 수 있습니닷",
+                    run(i) {
+                        if (i == "head") {
+                            $(`.content-${i}`).animate({ "marginRight": "80px", opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { "marginRight": "0px", opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else if (i == "shead") {
+                            $(`.content-${i}`).animate({ "marginLeft": "75px", opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { "marginLeft": "0px", opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        } else {
+                            $(`.content-${i}`).animate({ "marginRight": "60px", opacity: "0" },
+                                {
+                                    duration: 0
+                                })
+                                .animate(
+                                    { "marginRight": "0", opacity: "1" },
+                                    {
+                                        duration: 700,
+                                    });
+                        }
+                    }
+                }
+            ]
+            for (i in list[ele.value]) {
+                if (i == "run") return;
+                document.querySelector(`.content-${i}`).innerHTML = list[ele.value][i];
+                list[ele.value]["run"](i)
+            }
+        }
+    </script>
+    <%- include("../modules/header_m.ejs") %>
+        <%- include("../modules/header_m_script.ejs") %>
+
+            <div id="main">
+                <div class="mainflex">
+
+                    <div class="head">
+                        CREATIVITY
+                    </div>
+                    <div class="s-head">
+                        OOOO고등학교
+                    </div>
+
+                    <main>
+                        <div class="slider-wrap">
+                            <div class="slider">
+                                <div class="slides">
+                                    <input type="radio" name="slider-btn" id="sr-1" onchange="animation(this)"
+                                        value="0">
+                                    <input type="radio" name="slider-btn" id="sr-2" onchange="animation(this)"
+                                        value="1">
+                                    <input type="radio" name="slider-btn" id="sr-3" onchange="animation(this)"
+                                        value="2">
+                                    <input type="radio" name="slider-btn" id="sr-4" onchange="animation(this)"
+                                        value="3">
+
+                                    <!--slide images-->
+                                    <div class="slide first">
+                                        <img src="/images/slide1.png" alt="slide1unknown" style="margin-top: 10px;">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="/images/slide2.png" alt="slide2unknown" style="margin-top: 30px;">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="/images/slide3.png" alt="slide3unknown" style="margin-top: 10px;">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="/images/slide4.png" alt="slide4unknown" style="margin-top: 0px;">
+                                    </div>
+
+                                    <!--automatic navigation-->
+                                </div>
+                                <!--manual navigation-->
+                                <div class="navigation-manual">
+                                    <label for="sr-1" class="manual-btn"></label>
+                                    <label for="sr-2" class="manual-btn"></label>
+                                    <label for="sr-3" class="manual-btn"></label>
+                                    <label for="sr-4" class="manual-btn"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-content">
+                            <div class="content-head">OO인들</div>
+                            <div class="content-shead">에 온 것을 환영합니다!</div>
+                            <div class="content-con">OO인들은 OOOO고등학생 개발자 두 명이 만든<br> 교내 소통 및 학생자치용 웹 서비스입니다.</div>
+                        </div>
+                    </main>
+
+
+                </div>
+
+            </div>
+
+            <%- include("../modules/bottom_m.ejs") %>
+</body>
+
+</html>

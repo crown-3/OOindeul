@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/css/mobile/IDFinding.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <script>
+        let pg = 1;
+        let po = 0;
+        let number;
+        let name;
+        function fo() {
+            $(".go").attr('onclick', '').unbind('click');
+        }
+        function bl() {
+            if (pg == 2) {
+                setTimeout(() => {
+                    $(".go").click(function () { pg2() });
+                }, 1000);
+            } else if (pg == 3) {
+                setTimeout(() => {
+                    $(".go").click(function () { pg3() });
+                }, 1000);
+            } else if (pg == 4) {
+                setTimeout(() => {
+                    $(".go").click(function () { post() });
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    $(".done").click(function () { done() });
+                }, 1000);
+            }
+        }
+
+        function goback() {
+            pg--
+            if (pg == 1) {
+                $(".go").attr('onclick', '').unbind('click');
+                $(".go").click(function () { pg2() });
+            } else if (pg == 2) {
+                $(".go").attr('onclick', '').unbind('click');
+                $(".go").click(function () { pg3() });
+            } else if (pg == 3) {
+                $(".go").attr('onclick', '').unbind('click');
+                $(".go").click(function () { post() });
+            } else {
+                $(".go").attr('onclick', '').unbind('click');
+                $(".done").click(function () { done() });
+            }
+            $(`#pg${pg}`).css("display", "");
+            document.location.href = `#pg${pg + 1}`;
+            var po = document.querySelector(`#pg${pg}`).offsetTop;
+            $("body").animate({
+                scrollTop: po
+            }, 1000);
+        }
+
+        function nextpg() {
+            pg++
+
+            var po = document.querySelector(`#pg${pg}`).offsetTop;
+            $("body").animate({
+                scrollTop: po
+            }, 1000);
+            setTimeout(() => {
+                $(`#pg${pg - 1}`).css("display", "none");
+                document.location.href = `#pg${pg}`;
+                setTimeout(() => {
+                    document.location.href = `#pg${pg}`;
+                }, 10);
+            }, 1100);
+        }
+        function pg2() {
+            $(".go").attr("disabled", true)
+            number = document.querySelector("#number").value;
+            if (number.length != 4 || number < 0) {
+                $(".warning").text("학번이 뭔가 이상하지 않나요?")
+                warn()
+                return;
+            }
+            nextpg()
+            $(".go").attr('onclick', '').unbind('click');
+            $(".go").click(function () { pg3() })
+        }
+        function pg3() {
+            $(".go").attr("disabled", true)
+            name = document.querySelector("#name").value;
+            if (!name || name.length == 0) {
+                $(".warning").text("학생이름을 적어주세요!")
+                warn()
+                return;
+            }
+            $(".go").attr('onclick', '').unbind('click');
+            $(".go").click(function () { post() })
+            nextpg()
+        }
+
+        function test() {
+            $(".go").attr("disabled", true)
+            alert(document.querySelector(`#pg${pg}`).offsetTop);
+        }
+        let clicked = 0
+        function done() {
+            $(".done").click(function (e) {
+                if (clicked == 1) return
+                clicked++
+                let dd = {
+                    name: $("#name").val(),
+                    number: $("#number").val(),
+                    id: $("#input-id").val(),
+                    pw: $("#input-pw").val(),
+                    pw_conf: $("#input-pw-conf").val(),
+                    email: $("#input-email").val(),
+                    terms: $("#terms_check").is(":checked"),
+                    serial: $("#serial").val()
+                }
+                if (!dd.id || !dd.pw || !dd.pw_conf || dd.pw != dd.pw_conf || !dd.email || !dd.terms) {
+                    $(".warning").text("입력되지 않은 정보가 존재합니다!");
+                    return warn();
+                }
+                $.post(`/signup`, {
+                    name: dd.name,
+                    number: dd.number,
+                    id: dd.id,
+                    pw: dd.pw,
+                    email: dd.email,
+                    serial: dd.serial
+                }, (data) => {
+                    if (data == "yes") {
+                        alert("회원가입 요청에 성공하였습니다!");
+                        alert("메일인증을 위해 회원가입에 입력된 메일주소에 전송한 인증메세지를 확인해주세요!");
+                        window.location = "/login";
+                    } else if (data == "exist") {
+                        $(".warning").text("이미 있는 아이디 또는 메일주소입니다!");
+                        $(".done").attr('onclick', done())
+                        $(".done").attr("disabled", false)
+                        clicked = 0
+                        return warn();
+                    } else {
+                        $(".warning").text("일부 정보가 누락되었거나 잘못되었습니다!");
+                        $(".done").attr('onclick', done())
+                        $(".done").attr("disabled", false)
+                        clicked = 0
+                        return warn();
+                    }
+                })
+            })
+        }
+
+        function post() {
+            $(".go").click(function () {
+                let datas = {
+                    name: $("#name").val(),
+                    number: $("#number").val(),
+                    serial: $("#serial").val()
+                }
+                if (!datas.name || !datas.number || !datas.serial) {
+                    $(".warning").text("입력되지 않은 정보가 존재합니다!");
+                    return warn();
+                }
+                $(".go").attr('onclick', '').unbind('click');
+                $.post(`/serial_check`, {
+                    name: datas.name,
+                    number: datas.number,
+                    serial: datas.serial
+                }, (data) => {
+                    if (data == "yes") {
+                        return nextpg();
+                    } else if (data == "exist") {
+                        $(".go").click(function () { post() })
+                        $(".warning").text("이미 등록된 유저입니다!");
+                        return warn();
+                    } else if (data == "check") {
+                        $(".go").click(function () { post() })
+                        $(".warning").text("메일인증을 이미 요청한 유저입니다!");
+                        return warn();
+                    } else {
+                        $(".go").click(function () { post() })
+                        $(".warning").text("없는 시리얼입니다!");
+                        return warn();
+                    }
+                })
+            });
+        }
+
+        function warnt() {
+            $(".warning").text("OO인들은 OOOO고등학교 학생들만 가입 가능합니다.");
+            $('.warning').animate({ opacity: "1" }, 200);
+            setTimeout(() => {
+                $('.warning').animate({ opacity: "0" }, 200);
+            }, 2000);
+        }
+        function warn() {
+            $('.warning').animate({ opacity: "1" }, 200);
+            setTimeout(() => {
+                $('.warning').animate({ opacity: "0" }, 200);
+            }, 2000);
+        }
+        $('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
+        $('#element').on('scroll touchmove mousewheel', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+        let show = true;
+        function show_terms() {
+            if (show == false) {
+                $("#pg5 > div.maincontent > div.fixed-show-terms").css({ display: "none" }, 100);
+                show = true;
+            } else {
+                $("#pg5 > div.maincontent > div.fixed-show-terms").css({ display: "" }, 100);
+                show = false;
+            }
+        }
+    </script>
+
+    <%- include("../modules/header_m.ejs") %>
+        <%- include("../modules/header_m_script.ejs") %>
+            <section id="pg1">
+                <div class="maincontent-first">
+
+                    <div class="signUp-Des">원래 계정의</div>
+                    <div class="signUp-Title">이메일을 입력해 주세요.</div>
+                    <div class="diamondline" style="text-align: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574"
+                            viewBox="0 0 204.5 11.574">
+                            <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none"
+                                stroke="#f6c700" stroke-width="1" />
+                            <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#f6c700"
+                                stroke-width="1">
+                                <rect width="8.184" height="8.184" stroke="none" />
+                                <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="none" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="inputwrap">
+                        <input type="email" class="input" onfocus="fo()" onblur="bl()" value="">
+                        <span class="go" onclick="goback()">
+                            <svg id="keyboard_arrow_right-24px" xmlns="http://www.w3.org/2000/svg" width="17.503"
+                                height="17.503" viewBox="0 0 17.503 17.503">
+                                <path id="패스_1" data-name="패스 1" d="M0,0H17.5V17.5H0Z" fill="none" />
+                                <path id="패스_2" data-name="패스 2"
+                                    d="M8.59,13.723l3.34-3.347L8.59,7.028,9.618,6l4.376,4.376L9.618,14.751Z"
+                                    transform="translate(-2.325 -1.624)" fill="#f6c700" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="warning" style="margin-top: 10px;">해당 이메일로 가입된 계정이 없습니다!</div>
+
+                </div>
+            </section>
+
+            <section id="pg2">
+                <div class="maincontent">
+
+                    <div class="signUp-Des">입력된 이메일에 코드를 전송했습니다.</div>
+                    <div class="signUp-Title">코드를 입력해주세요.</div>
+                    <div class="diamondline" style="text-align: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574"
+                            viewBox="0 0 204.5 11.574">
+                            <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none"
+                                stroke="#f6c700" stroke-width="1" />
+                            <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#f6c700"
+                                stroke-width="1">
+                                <rect width="8.184" height="8.184" stroke="none" />
+                                <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="none" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="inputwrap">
+                        <input type="text" class="input" onfocus="fo()" onblur="bl()" value="">
+                        <span class="go">
+                            <svg id="keyboard_arrow_right-24px" xmlns="http://www.w3.org/2000/svg" width="17.503"
+                                height="17.503" viewBox="0 0 17.503 17.503">
+                                <path id="패스_1" data-name="패스 1" d="M0,0H17.5V17.5H0Z" fill="none" />
+                                <path id="패스_2" data-name="패스 2"
+                                    d="M8.59,13.723l3.34-3.347L8.59,7.028,9.618,6l4.376,4.376L9.618,14.751Z"
+                                    transform="translate(-2.325 -1.624)" fill="#f6c700" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="warning" style="margin-top: 10px;">일치하지 않습니다!</div>
+
+                </div>
+            </section>
+
+            <section id="pg3">
+                <div class="maincontent">
+
+                    <div class="signUp-Des">소중한 개인정보를 잘 지키세요.</div>
+                    <div class="signUp-Title">여기 아이디입니다.</div>
+                    <div class="diamondline" style="text-align: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574"
+                            viewBox="0 0 204.5 11.574">
+                            <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none"
+                                stroke="#f6c700" stroke-width="1" />
+                            <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#f6c700"
+                                stroke-width="1">
+                                <rect width="8.184" height="8.184" stroke="none" />
+                                <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="none" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="recoverytext">아이디</div>
+                    <div class="recoverykey">
+                        <div class="recoverykey-wrap">ADF09CV93</div>
+                    </div>
+                    <!--recoverykey-wrap의 content를 복구 키로 해 주셈-->
+                    <div class="recoverydes"></div>
+
+                    <input type="button" class="gotologin" value="로그인하기">
+                </div>
+            </section>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/public/css/mobile/SignUpT.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <script>
+        function warn() {
+            $('.warning').animate({ opacity: "0" }, 200)
+        }
+        
+
+        
+        let test = true;
+        function show_terms() {
+            if (test == false) {
+                $("#pg2 > div.maincontent > div.fixed-show-terms").css({ display : "none" }, 100);
+                test = true;
+            } else {
+                $("#pg2 > div.maincontent > div.fixed-show-terms").css({ display : "" }, 100);
+                test = false;
+            }
+        }
+    </script>
+    <%- include("../modules/header_m.ejs") %>
+
+    <section id="pg1">
+        <div class="maincontent-first">
+
+            <div class="signUp-Des">안녕하세요, 선생님.</div>
+            <div class="signUp-Title">성함을 써 주세요.</div>
+            <div class="diamondline" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574" viewBox="0 0 204.5 11.574">
+                    <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none" stroke="#000"
+                        stroke-width="1" />
+                    <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#000"
+                        stroke-width="1">
+                        <rect width="8.184" height="8.184" stroke="none" />
+                        <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="#fff" />
+                    </g>
+                </svg>
+            </div>
+            <div class="inputwrap">
+                <input type="number" class="input" value="">
+                <span class="go">
+                    <svg id="keyboard_arrow_right-24px" xmlns="http://www.w3.org/2000/svg" width="17.503" height="17.503"
+                        viewBox="0 0 17.503 17.503">
+                        <path id="패스_1" data-name="패스 1" d="M0,0H17.5V17.5H0Z" fill="none" />
+                        <path id="패스_2" data-name="패스 2"
+                            d="M8.59,13.723l3.34-3.347L8.59,7.028,9.618,6l4.376,4.376L9.618,14.751Z"
+                            transform="translate(-2.325 -1.624)" fill="#000" />
+                    </svg>
+                </span>
+            </div>
+            <div class="warning" style="margin-top: 10px;">해당 선생님께서는 이미 가입하셨습니다!</div>
+    
+        </div>
+    </section>
+
+    <section id="pg2">
+        <div class="maincontent">
+
+            <div class="signUp-Des">이제 다 왔어요.</div>
+            <div class="signUp-Title">입력하세요!</div>
+    
+            <div class="section-input">
+                <div class="diamondline" style="text-align: center;" style="margin-top: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574" viewBox="0 0 204.5 11.574">
+                        <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none"
+                            stroke="#000" stroke-width="1" />
+                        <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#000"
+                            stroke-width="1">
+                            <rect width="8.184" height="8.184" stroke="none" />
+                            <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="#FFF" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="backwrap">
+                    <label for="input-id">아이디</label>
+                    <input type="text" id="input-id">
+    
+                    <label for="input-pw">비밀번호</label>
+                    <input type="password" id="input-pw">
+    
+                    <label for="input-pw-conf">비밀번호 확인</label>
+                    <input type="password" id="input-pw-conf">
+                    
+                    <label for="input-pw-conf">이메일</label>
+                    <input type="email" id="input-pw-conf">
+                </div>
+                <div class="diamondline2" style="text-align: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574" viewBox="0 0 204.5 11.574">
+                        <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none"
+                            stroke="#000" stroke-width="1" />
+                        <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#000"
+                            stroke-width="1">
+                            <rect width="8.184" height="8.184" stroke="none" />
+                            <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="#FFF" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="terms_for_privacy">
+                <input id="terms_check" type="checkbox">
+                <label onclick="show_terms()" id="terms">개인정보 수집 및 이용</label><label for="terms_check">에 동의합니다.
+                    (필수)</label>
+            </div>
+
+            <div class="fixed-show-terms" style="display: none;">
+                <div class="terms-close-btn" onclick="show_terms()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="#000"
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </div>
+                <div class="terms-content-wrap">
+                    <textarea class="terms-content">
+1. ‘개인정보 처리방침’이란?&NewLine;
+OO인들 개발팀(이하"개발 팀")은 이용자의 ‘동의를 기반으로 개인정보를 수집·이용 및 제공’하고 있으며, ‘이용자의 권리 (개인정보 자기결정권)를 적극적으로 보장’합니다.
+개발 팀은 정보통신서비스제공자가 준수하여야 하는 대한민국의 관계 법령 및 개인정보보호 규정, 가이드라인을 준수하고 있습니다.
+‘개인정보 처리방침’이란 이용자의 소중한 개인정보를 보호함으로써 이용자가 안심하고 서비스를 이용할 수 있도록 개발 팀 및 관리인이 준수해야 할 지침을 의미합니다.
+본 개인정보처리방침은 개발 팀이 제공하는 OO인들 기반의 서비스(이하 ‘서비스'라 함)에 적용됩니다.&NewLine;
+2. 개인정보 수집, 이용, 제공 및 파기&NewLine;
+서비스 제공을 위한 필요 최소한의 개인정보를 수집하고 있습니다.
+회원 가입 시 또는 서비스 이용 과정에서 홈페이지를 통해 아래와 같은 서비스 제공을 위해 필요한 최소한의 개인정보를 수집하고 있습니다. 
+공개 범위는 곧 서비스를 이용하거나 관리하는 제3자가 본 개인정보를 제공받을 수 있는 범위를 지칭합니다.
+OO인들은 이용자의 별도 동의가 있는 경우나 법령에 규정된 경우를 제외하고는 이용자의 개인정보를 제3자에게 제공하지 않습니다. 
+개인정보의 오류에 대한 정정을 요청하신 경우 정정을 완료하기 전까지 해당 개인정보를 이용 또는 제공하지 않습니다.&NewLine;
+가. 계정 정보&NewLine;
+- 계정 삭제 이전 또는 진학 이전까지 보관
+(순서 : 정보 | 용도 | 공개 범위)
+학번 | OO인들 번호 표기 | 전체                   
+이름 | OO인들 이름 표기 | 전체                   
+시리얼번호 | 학생정보 확인 | 개발자                
+메일주소 | 계정에 대한 정보변경 알림 | 개발자
+&NewLine;
+나. 글 작성&NewLine;
+- 글 삭제 이전까지 보관
+제목,내용,파일,글쓴이  | 게시글 표기 | 전체
+글쓴이 고유아이디 | 부적절한 글 검열 | M 권한 소지자
+&NewLine;
+다. 댓글 또는 게시글 추천&NewLine;
+- 글 삭제 이전까지 보관
+추천인 | 정지시 추천정보 삭제 | 공개하지 않음
+댓글 작성자 | 부적절한 글 검열 또는 공개 | 전체
+&NewLine;
+라. 글 관리 로그&NewLine;
+- 7일동안 보관
+글 삭제 | 삭제를 잘못했을 경우 | M 권한 소지자
+이용정지 처분 | 부적절한 이용정지 확인 | M 권한 소지자
+&NewLine;
+3. 기타 사항&NewLine;
+개인정보보호와 관련해서 궁금하신 사항은?&NewLine;
+서비스를 이용하면서 발생하는 모든 개인정보보호 관련 문의, 불만, 조언이나 기타 사항은 본 서비스의 ‘피드백’ 탭에 있는 연락처로 연락해 주시기 바랍니다. OO인들은 여러분의 목소리에 귀 기울이고 신속하고 충분한 답변을 드릴 수 있도록 최선을 다하겠습니다.
+&NewLine;
+개인정보처리방침이 변경되는 경우는?&NewLine;
+법률이나 서비스의 변경사항을 반영하기 위한 목적 등으로 개인정보처리방침을 수정할 수 있습니다. 개인정보처리방침이 변경되는 경우 OO인들은 변경 사항을 게시하며, 변경된 개인정보처리방침은 게시한 날로부터 7일 후부터 효력이 발생합니다.
+&NewLine;
+
+                    </textarea>
+                </div>
+            </div>
+    
+            <span class="go" style="margin: 0 auto">
+                <svg id="keyboard_arrow_right-24px" xmlns="http://www.w3.org/2000/svg" width="17.503" height="17.503"
+                    viewBox="0 0 17.503 17.503">
+                    <path id="패스_1" data-name="패스 1" d="M0,0H17.5V17.5H0Z" fill="none" />
+                    <path id="패스_2" data-name="패스 2"
+                        d="M8.59,13.723l3.34-3.347L8.59,7.028,9.618,6l4.376,4.376L9.618,14.751Z"
+                        transform="translate(-2.325 -1.624)" fill="#000" />
+                </svg>
+            </span>
+    
+        </div>
+    </section>
+
+    <section id="pg3">
+        <div class="maincontent">
+
+            <div class="signUp-Des">가입해 주셔서</div>
+            <div class="signUp-Title">감사합니다!</div>
+            <div class="diamondline" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574" viewBox="0 0 204.5 11.574">
+                    <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none" stroke="#000"
+                        stroke-width="1" />
+                    <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#000"
+                        stroke-width="1">
+                        <rect width="8.184" height="8.184" stroke="none" />
+                        <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="#fff" />
+                    </g>
+                </svg>
+            </div>
+            <div class="recoverytext">복구 키</div>
+            <div class="recoverykey">
+                <div class="recoverykey-wrap">ADF09CV93</div>
+            </div>
+            <!--recoverykey-wrap의 content를 복구 키로 해 주셈-->
+            <div class="recoverydes">복구 키는 아이디 및 비밀번호를 잊어버렸을 때 사용됩니다. 꼭 기억해 주세요.</div>
+
+            <input type="button" class="gotologin" value="로그인하기">
+        </div>
+    </section>
+
+
+</html>

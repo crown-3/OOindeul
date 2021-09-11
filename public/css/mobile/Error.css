@@ -1,0 +1,41 @@
+*{
+    font-family: 나눔스퀘어;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    text-align: center;
+}
+
+:focus{
+    outline: none;
+}
+
+img {
+    width:90vw;
+    margin-top:100px;
+}
+
+.des{
+    margin-top:30px;
+    font-weight: bold;
+    font-size:30px;
+}
+
+.main {
+    margin-top: 30px;
+    text-align: center;
+    width:150px;
+    height: 30px;
+    background: #F6C700;
+    border: 0px #F6C700 solid;
+    border-radius: 20px;
+    transition: .1s;
+    font-size: 15px;
+}
+
+.main:hover {
+    background: #d6af00;
+    transition: .1s;
+}

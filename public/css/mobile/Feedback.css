@@ -1,0 +1,300 @@
+@font-face{
+    src: url("/font/NanumSquareB.ttf");
+    src: url("/font/NanumSquareEB.ttf");
+    src: url("/font/NanumSquareL.ttf");
+    src: url("/font/NanumSquareR.ttf");
+    font-family: "나눔스퀘어";
+}
+
+:focus{
+    outline: none;
+}
+
+*{
+    font-family: 나눔스퀘어;
+    --bg-primary:#F6C700;
+    --bg-secondary:#000;
+    --bg-A:#b49300;
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track{
+    background: #000;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #F6C700;
+}
+
+li, a, button{
+    font-family: 나눔스퀘어;
+    font-size: 16px;
+    color:#fff;
+    text-decoration: none;
+}
+
+/* The side navigation menu */
+.nav-links {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .nav-links a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .nav-links a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .nav-links .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    margin:0;
+    padding: 0;
+  }
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:30px 10%;
+    background-color: var(--bg-secondary);
+    height: 25px;
+}
+
+main{
+    min-height: calc(100vh - 60px - 90px);
+}
+
+.logo {
+    cursor: pointer;
+    width:50px;
+    transition: .1s;
+}
+
+#userdat {
+    color:#b9b9b9;
+}
+
+.titlebox{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tsvg{
+    width:70px;
+    margin:0px auto;
+}
+
+.title{
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.boldline{
+    border-bottom: 3px solid #000;
+    width: 90%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stline{
+    border-left: 3px solid #000;
+    width: 0;
+    height: 20px;
+    margin:0 auto;
+}
+
+.devcontact{
+    font-weight: bold;
+    font-size: 15px;
+    width: 40%;
+    border:3px solid #000;
+    text-align: center;
+    padding:3px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.devprofile{
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.devcontent{
+    width: 90%;
+}
+
+.leftb{
+    border-left: solid 3px #000;
+    border-top: solid 3px #000;
+    border-bottom: solid 3px #000;
+    width: 10px;
+}
+
+.rightb{
+    border-top: solid 3px #000;
+    border-right: solid 3px #000;
+    border-bottom: solid 3px #000;
+    width: 10px;
+}
+
+.devprofile img{
+    width: 100px;
+    border-radius: 50px;
+}
+
+.devname{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.devnum, .devdes{
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.devdes{
+    font-size: 12px;
+}
+
+.devemail{
+    margin-top: 10px;
+}
+
+#boldline2{
+    margin-top: 30px;
+}
+
+.projectinfo{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.infologo{
+    width: 150px;
+}
+
+.infodes p:nth-child(1){
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom:0;
+}
+
+.infodes p:nth-child(2){
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.plandownbtn{
+    width: 40%;
+    color:var(--bg-primary);
+    background: #000;
+    border:none;
+    font-size: 15px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#discord{
+    width: 30%;
+    background: #7289DA;
+    color:#fff ;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom:10px;
+    transition:.1s;
+}
+
+#discord:focus{
+    color:#7289DA;
+    background:#fff;
+    transition:.1s;
+}
+
+#kakao{
+    width: 30%;
+    background: #fbe501;
+    color:#000 ;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-bottom:10px;
+    transition:.1s;
+}
+
+#kakao:focus{
+    color: #fbe501;
+    background:#000;
+    transition:.1s;
+}
+
+#plan{
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+#plan:focus{
+    transition:.1s;
+    color: #000;
+    background:var(--bg-primary) ;
+}
+
+.bottom{
+    border-top:var(--bg-primaryvar) solid 4px;
+    width:100%;
+    height: 90px;
+    text-align: center;
+    background: var(--bg-secondary);
+    color:#b6b6b6;
+    font-size: 10px;
+}
+
+.bottomtext{
+    padding-top:15px;
+}

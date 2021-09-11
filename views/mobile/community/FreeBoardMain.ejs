@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/public/css/mobile/FreeBoardMain.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        let test = false;
+        function tt() {
+            if (test == false) {
+                $("#main > div.stickynav > div.align-wrap > div.align-hiddenwrap").css({ display : "none" }, 100);
+                test = true;
+            } else {
+                $("#main > div.stickynav > div.align-wrap > div.align-hiddenwrap").css({ display : "" }, 100);
+                test = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <%- include("../modules/header_m.ejs") %>
+
+    <div id="main">
+        <div class="belt">
+            <svg xmlns="http://www.w3.org/2000/svg" width="111.947" height="25" viewBox="0 0 111.947 25">
+                <path id="패스_1" data-name="패스 1" d="M12.5,0,25,13.347V33.974H0V13.347Z" transform="translate(0 25) rotate(-90)" fill="#f6c700"/>
+                <path id="패스_2" data-name="패스 2" d="M12.5,0,25,13.347V33.974H0V13.347Z" transform="translate(111.947) rotate(90)" fill="#f6c700"/>
+                <rect id="사각형_3" data-name="사각형 3" width="52" height="25" transform="translate(30.974)" fill="#f6c700"/>
+                <path id="Poll" d="M28.672,23.423H18.251V10.5h2.293v1.251h5.836V10.5h2.293ZM23.461,8.834a.625.625,0,1,1-.625.625.641.641,0,0,1,.625-.625Zm5.627.417H25.545V8.834A.836.836,0,0,0,24.712,8h-2.5a.836.836,0,0,0-.834.834v.417H17.834a.836.836,0,0,0-.834.834V23.84a.836.836,0,0,0,.834.834H29.088a.836.836,0,0,0,.834-.834V10.084A.836.836,0,0,0,29.088,9.251Z" transform="translate(32.013 -4.564)"/>
+              </svg>              
+        </div>
+
+        <div class="stickynav">
+            <div class="align-wrap">
+                <div class="align" onclick="tt()">
+                    <div class="align-icon">
+                        <svg id="format_align_left-24px" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                            viewBox="0 0 9.342 8.438">
+                            <path id="패스_18" data-name="패스 18" d="M0,0H9.342V8.438H0Z" fill="none" />
+                            <path id="패스_19" data-name="패스 19"
+                                d="M7.05,6.447H3v.575H7.05Zm0-2.3H3v.575H7.05ZM3,5.873H9.075V5.3H3Zm0,2.3H9.075V7.6H3ZM3,3v.575H9.075V3Z"
+                                transform="translate(-1.366 -1.366)" fill="#fff" />
+                        </svg>
+                    </div>
+
+                    <div class="align-t">정렬</div>
+                </div>
+
+                <div class="align-hiddenwrap">
+                    <!--.align 누르면 .align-hiddenwrap 안보이게 하면 됩니다, 그리고 기본값은 '안 보이는 것'입니다-->
+                    <div class="align-order">
+                        <div href="" id="recent-order">최신순</div>
+                        <div href="" id="old-order">오래된순</div>
+                        <div href="" id="recommendation-order">PUBLIC인 것만</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diamondline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="230.75" height="11.574" viewBox="0 0 230.75 11.574">
+                    <line id="선_16" data-name="선 16" x1="230.75" transform="translate(0 5.787)" fill="none"
+                        stroke="#f6c700" stroke-width="1" />
+                    <g id="사각형_17" data-name="사각형 17" transform="translate(115.375) rotate(45)" fill="#262626"
+                        stroke="#f6c700" stroke-width="1">
+                        <rect width="8.184" height="8.184" stroke="none" />
+                        <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="none" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="pagewrap">
+                <div class="pagebtns">
+                    <div class="pagefirst">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13.306" height="9.71" viewBox="0 0 13.306 9.71">
+                            <g id="arrow_back_ios-24px" transform="translate(3.596)">
+                                <path id="패스_33" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                            <g id="arrow_back_ios-24px-2" data-name="arrow_back_ios-24px">
+                                <path id="패스_33-2" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34-2" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                        </svg>
+
+                    </div>
+                    <div class="pageback">
+                        <svg id="arrow_back_ios-24px" xmlns="http://www.w3.org/2000/svg" width="13.5" height="13.5"
+                            viewBox="0 0 13.5 13.5">
+                            <path id="패스_33" data-name="패스 33" d="M0,0H13.5V13.5H0Z" fill="none" opacity="0.87" />
+                            <path id="패스_34" data-name="패스 34"
+                                d="M12.4,3.1l-1-1L5.84,7.669l5.569,5.569,1-1L7.831,7.669Z"
+                                transform="translate(-2.555 -0.919)" fill="#f6c700" />
+                        </svg>
+                    </div>
+                    <div class="pagebtn" id="page-selected">1</div>
+                    <!--선택된 페이지는 id를 page-selected로 바꿔주셈-->
+                    <div class="pagebtn">2</div>
+                    <div class="pagenext">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13.5" height="13.5" viewBox="0 0 13.5 13.5">
+                            <g id="arrow_back_ios-24px" transform="translate(13.5 13.5) rotate(180)">
+                                <path id="패스_33" data-name="패스 33" d="M0,0H13.5V13.5H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34" data-name="패스 34"
+                                    d="M12.4,3.1l-1-1L5.84,7.669l5.569,5.569,1-1L7.831,7.669Z"
+                                    transform="translate(-2.555 -0.919)" fill="#f6c700" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="pagelast">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13.306" height="9.71" viewBox="0 0 13.306 9.71">
+                            <g id="arrow_back_ios-24px" transform="translate(9.71 9.71) rotate(180)">
+                                <path id="패스_33" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                            <g id="arrow_back_ios-24px-2" data-name="arrow_back_ios-24px"
+                                transform="translate(13.306 9.71) rotate(180)">
+                                <path id="패스_33-2" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34-2" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                        </svg>
+
+                    </div>
+
+                </div>
+                <div class="pageinfo">
+                    총 n 페이지, n 개 게시글
+                </div>
+            </div>
+            <div class="categorymenu">
+                <button class="public" id="PUBLIC">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                        <g id="verified-24px" transform="translate(0 0.08)">
+                          <g id="그룹_22" data-name="그룹 22" transform="translate(0 -0.241)">
+                            <rect id="사각형_38" data-name="사각형 38" width="15" height="15" transform="translate(0 0.161)" fill="none"/>
+                          </g>
+                          <g id="그룹_23" data-name="그룹 23" transform="translate(0.613 1.119)">
+                            <path id="패스_43" data-name="패스 43" d="M14.494,7.94,13,6.229l.209-2.263-2.214-.5L9.832,1.5l-2.085.9L5.661,1.5,4.5,3.457l-2.214.5L2.5,6.223,1,7.94,2.5,9.651l-.209,2.269,2.214.5L5.661,14.38l2.085-.9,2.085.9,1.159-1.957,2.214-.5L13,9.651ZM6.575,10.835,4.245,8.5l.908-.908L6.575,9.02l3.588-3.6.908.908Z" transform="translate(-1 -1.5)" fill="#00d910"/>
+                          </g>
+                        </g>
+                      </svg>
+                      
+                    PUBLIC
+                </button>
+                <button class="notice">공지</button> <!--선택된 button 탭에 border-bottom: #00D910 5px solid;-->
+                <button class="free-writing">자유글</button>
+                <button class="QND">질문/토론</button>
+            </div>
+
+        </div>
+
+        <div class="board"> <!--하나의 게시물임-->
+            <div class="stat-info">
+                <div class="profile">
+                    <div class="profile-picture">
+                        <img id="profile-picture" src="/public/images/DefaultIconT.png" alt="">
+                    </div>
+                    <div class="authorinfo">
+                        <div class="authorname">홍길동 선생님</div>
+                        <div class="authordate">2021.03.16</div>
+                    </div>
+                </div>
+                <div class="status">
+                    <div class="status-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <g id="verified-24px" transform="translate(0 0.241)">
+                              <g id="그룹_22" data-name="그룹 22" transform="translate(0 -0.241)">
+                                <rect id="사각형_38" data-name="사각형 38" width="18" height="18" transform="translate(0 0)" fill="none"/>
+                              </g>
+                              <g id="그룹_23" data-name="그룹 23" transform="translate(0.728 1.374)">
+                                <path id="패스_43" data-name="패스 43" d="M17.021,9.146,15.244,7.115l.248-2.687-2.629-.6L11.486,1.5,9.01,2.563,6.534,1.5,5.158,3.823l-2.629.59.248,2.694L1,9.146l1.777,2.032-.248,2.694,2.629.6,1.376,2.323,2.476-1.07,2.476,1.063,1.376-2.323,2.629-.6-.248-2.687Zm-9.4,3.437L4.852,9.809,5.93,8.731l1.689,1.7,4.26-4.275,1.078,1.078Z" transform="translate(-1 -1.5)" fill="#00d910"/>
+                              </g>
+                            </g>
+                          </svg>
+                          
+                    </div>
+                    <div class="status-des">
+                        PUBLIC
+                    </div>
+                </div>
+            </div>
+            <div class="title-content">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis maxime rem eaque repellat consectetur laborum recusandae natus possimus dicta excepturi quaerat, rerum impedit quos ad provident a, reprehenderit tenetur autem officiis veniam architecto libero debitis quod dolorum. Rem nulla vel blanditiis accusantium voluptatem iure asperiores, maiores at ipsam, fuga doloremque.
+            </div>
+            <div class="board-line"></div>
+            <div class="board-nums">
+                <div class="board-nums-list">
+                    <div class="board-nums-des" id="board-category">카테고리 : Not Found</div>
+                </div>
+                <div class="board-nums-vline"></div>
+                <div class="board-nums-list">
+                    <div class="board-nums-icon">
+                        <svg id="insert_comment-24px" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                            viewBox="0 0 15 15">
+                            <path id="패스_10" data-name="패스 10" d="M0,0H15V15H0Z" fill="none" />
+                            <path id="패스_11" data-name="패스 11"
+                                d="M13.25,3.25v8.231l-.731-.731H3.25V3.25h10m0-1.25h-10A1.254,1.254,0,0,0,2,3.25v7.5A1.254,1.254,0,0,0,3.25,12H12l2.5,2.5V3.25A1.254,1.254,0,0,0,13.25,2ZM12,8.25H4.5V9.5H12Zm0-1.875H4.5v1.25H12ZM12,4.5H4.5V5.75H12Z"
+                                transform="translate(-0.75 -0.75)" fill="#707070" />
+                        </svg>
+                    </div>
+                    <div class="board-nums-des">댓글</div>
+                    <div class="board-nums-num" id="replynum">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="board"> <!--하나의 게시물임-->
+            <div class="stat-info">
+                <div class="profile">
+                    <div class="profile-picture">
+                        <img id="profile-picture" src="/public/images/DefaultIcon.png" alt="">
+                    </div>
+                    <div class="authorinfo">
+                        <div class="authorname">0000 홍길동</div>
+                        <div class="authordate">2021.03.16</div>
+                    </div>
+                </div>
+                <div class="status">
+                    <div class="status-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <g id="verified-24px" transform="translate(0 0.241)">
+                              <g id="그룹_22" data-name="그룹 22" transform="translate(0 -0.241)">
+                                <rect id="사각형_38" data-name="사각형 38" width="18" height="18" transform="translate(0 0)" fill="none"/>
+                              </g>
+                              <g id="그룹_23" data-name="그룹 23" transform="translate(0.728 1.374)">
+                                <path id="패스_43" data-name="패스 43" d="M17.021,9.146,15.244,7.115l.248-2.687-2.629-.6L11.486,1.5,9.01,2.563,6.534,1.5,5.158,3.823l-2.629.59.248,2.694L1,9.146l1.777,2.032-.248,2.694,2.629.6,1.376,2.323,2.476-1.07,2.476,1.063,1.376-2.323,2.629-.6-.248-2.687Zm-9.4,3.437L4.852,9.809,5.93,8.731l1.689,1.7,4.26-4.275,1.078,1.078Z" transform="translate(-1 -1.5)" fill="#00d910"/>
+                              </g>
+                            </g>
+                          </svg>
+                          
+                    </div>
+                    <div class="status-des">
+                        PUBLIC
+                    </div>
+                </div>
+            </div>
+            <div class="title-content">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis maxime rem eaque repellat consectetur laborum recusandae natus possimus dicta excepturi quaerat, rerum impedit quos ad provident a, reprehenderit tenetur autem officiis veniam architecto libero debitis quod dolorum. Rem nulla vel blanditiis accusantium voluptatem iure asperiores, maiores at ipsam, fuga doloremque.
+            </div>
+            <div class="board-line"></div>
+            <div class="board-nums">
+                <div class="board-nums-list">
+                    <div class="board-nums-des" id="board-category">카테고리 : Not Found</div>
+                </div>
+                <div class="board-nums-vline"></div>
+                <div class="board-nums-list">
+                    <div class="board-nums-icon">
+                        <svg id="insert_comment-24px" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                            viewBox="0 0 15 15">
+                            <path id="패스_10" data-name="패스 10" d="M0,0H15V15H0Z" fill="none" />
+                            <path id="패스_11" data-name="패스 11"
+                                d="M13.25,3.25v8.231l-.731-.731H3.25V3.25h10m0-1.25h-10A1.254,1.254,0,0,0,2,3.25v7.5A1.254,1.254,0,0,0,3.25,12H12l2.5,2.5V3.25A1.254,1.254,0,0,0,13.25,2ZM12,8.25H4.5V9.5H12Zm0-1.875H4.5v1.25H12ZM12,4.5H4.5V5.75H12Z"
+                                transform="translate(-0.75 -0.75)" fill="#707070" />
+                        </svg>
+                    </div>
+                    <div class="board-nums-des">댓글</div>
+                    <div class="board-nums-num" id="replynum">0</div>
+                </div>
+            </div>
+        </div>
+
+    <div class="writebtn">
+        <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" id="Icons_Pencil" overflow="hidden">
+                        <path
+                            d="M25 71.1C27 73.1 27 76.2 25 78.2L16.5 81 15 79.5 17.8 71C19.9 69.1 23 69.1 25 71.1ZM64.3 18.9 14.3 69 8 88 27.1 81.7 77.1 31.7" />
+                        <path
+                            d="M86.9 16.2 79.8 9.1C78.2 7.5 75.7 7.5 74.1 9.1L67.1 16.1 79.8 28.8 86.8 21.8C88.5 20.3 88.5 17.8 86.9 16.2Z" />
+        </svg>
+    </div>
+
+
+    </div>
+
+    <%- include("../modules/bottom_m.ejs") %>
+</body>
+
+</html>

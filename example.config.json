@@ -1,0 +1,8 @@
+{
+    "host": "domain",
+    "port": 3000,
+    "public-key": "key",
+    "private-key": "key",
+    "token": "discord_bot_token",
+    "password": "password_for_aes"
+}

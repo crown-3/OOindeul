@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/css/mobile/SignUp.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <script>
+    </script>
+    <%- include("../modules/header_m.ejs") %>
+        <%- include("../modules/header_m_script.ejs") %>
+            <div class="maincontent-first">
+
+                <div class="signUp-Des">가입해 주셔서</div>
+                <div class="signUp-Title">감사합니다!</div>
+                <div class="diamondline" style="text-align: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="204.5" height="11.574" viewBox="0 0 204.5 11.574">
+                        <line id="선_1" data-name="선 1" x1="204.5" transform="translate(0 5.787)" fill="none"
+                            stroke="#f6c700" stroke-width="1" />
+                        <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" stroke="#f6c700"
+                            stroke-width="1">
+                            <rect width="8.184" height="8.184" stroke="none" />
+                            <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="none" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="recoverytext">복구 키</div>
+                <div class="recoverykey">
+                    <div class="recoverykey-wrap">
+                        <%= key %>
+                    </div>
+                </div>
+                <!--recoverykey-wrap의 content를 복구 키로 해 주셈-->
+                <div class="recoverydes">복구 키는 아이디 및 비밀번호를 잊어버렸을 때 사용됩니다. 꼭 기억해 주세요.</div>
+                <div class="recoverydes">혹시나 잃어버리실 당신을 위해 메일에 복구키를 전송해드렸습니다.</div>
+                <input type="button" class="gotologin" value="로그인하기" onclick="window.location = '/login'">
+            </div>
+
+</html>

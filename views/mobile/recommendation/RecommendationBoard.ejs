@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/css/mobile/RecommendationBoard.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <%- include("../modules/header_m.ejs") %>
+        <%- include("../modules/header_m_script.ejs") %>
+
+            <div id="main">
+                <div class="belt">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="111.947" height="25" viewBox="0 0 111.947 25">
+                        <path id="패스_36" data-name="패스 36" d="M12.5,0,25,13.347V33.974H0V13.347Z"
+                            transform="translate(0 25) rotate(-90)" fill="#f6c700" />
+                        <path id="패스_37" data-name="패스 37" d="M12.5,0,25,13.347V33.974H0V13.347Z"
+                            transform="translate(111.947) rotate(90)" fill="#f6c700" />
+                        <rect id="사각형_12" data-name="사각형 12" width="52" height="25" transform="translate(30.974)"
+                            fill="#f6c700" />
+                        <g id="Recommendation" transform="translate(39.811 -3.635)">
+                            <path id="패스_38" data-name="패스 38"
+                                d="M15.322,76.814h-.407V76H9.22v.814H8.814a.814.814,0,1,0,0,1.627h6.508a.814.814,0,0,0,0-1.627Z"
+                                transform="translate(0 -54.17)" />
+                            <path id="패스_39" data-name="패스 39"
+                                d="M24.861,43.451a.59.59,0,0,0,0-.854l-3.213-3.213a.59.59,0,0,0-.854,0L20,40.176l4.068,4.068Z"
+                                transform="translate(-9.559 -24.855)" />
+                            <path id="패스_40" data-name="패스 40"
+                                d="M54.6,12.861a.59.59,0,0,0,.854,0l.793-.793L52.176,8l-.793.793a.59.59,0,0,0,0,.854Z"
+                                transform="translate(-34.414)" />
+                            <path id="패스_41" data-name="패스 41"
+                                d="M41.592,27.965,36.1,22.474l1.22-1.22L34.068,18,30,22.068l3.254,3.254,1.627-1.627,5.491,5.491a.863.863,0,0,0,1.22-1.22Z"
+                                transform="translate(-17.526 -7.966)" />
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="board">
+                    <div class="stat-info">
+                        <div class="profile">
+                            <div class="profile-picture">
+                                <img id="profile-picture" src="/images/DefaultIcon.png" alt="">
+                            </div>
+                            <div class="authorinfo">
+                                <div class="authorname">학번</div>
+                                <div class="authordate">0000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-content">
+                        제목
+                    </div>
+                    <div class="board-line"></div>
+                    <div class="board-content">
+                        내용
+                    </div>
+                    <div class="board-line"></div>
+                    <div class="boardmenu">
+                        <div class="boardmenu-lists">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+                            </svg>
+                            <a class="report-recommend" id="report">신고</a>
+                        </div>
+                        <!-- 백업-2 -->
+                    </div>
+
+                    <div class="board-alert-setting">
+                        <input type="checkbox" name="isSendDiscordAlert" id="isSendDiscordAlert"><label for="isSendDiscordAlert"> 디스코드에 댓글 / 게시글 상태 알림 수신 </label>
+                    </div>
+
+                </div>
+
+                <div class="board-download">
+                    <div class="attachlist">
+                        <!--첨부파일이 없으면 display:none;-->
+
+                        <div class="thead">
+
+                            <div class="checkdiv"><input type="checkbox" class="check" disabled></div>
+                            <div class="t-filename">파일명</div>
+                            <div class="t-capacity">용량</div>
+
+                        </div>
+                        <div class="tbody">
+
+                            <div class="checkdiv"><input type="checkbox" class="checked" id="file_name" name="파일이름"></div>
+                            <div class="filename"><label for="file_name">file name</label></div>
+                            <div class="capacity"><label for="file_name">file size</label></div>
+
+                        </div>
+                        <div class="tfoot"></div>
+                        <button class="attatchment-download">선택한 파일 다운로드</button>
+                    </div>
+                </div>
+
+                <div class="board-property">
+                    <button class="agreebtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <g id="thumb_up_off_alt-24px" transform="translate(0 0.09)">
+                                <g id="그룹_2" data-name="그룹 2" transform="translate(0 -0.09)">
+                                    <rect id="사각형_8" data-name="사각형 8" width="18" height="18" transform="translate(0 0)"
+                                        fill="none" />
+                                </g>
+                                <g id="그룹_4" data-name="그룹 4" transform="translate(0.74 1.239)">
+                                    <g id="그룹_3" data-name="그룹 3">
+                                        <path id="패스_9" data-name="패스 9"
+                                            d="M6.923,15.808h6.663a1.471,1.471,0,0,0,1.362-.9l2.236-5.22a1.463,1.463,0,0,0,.1-.54V7.663a1.485,1.485,0,0,0-1.481-1.481H11.136l.7-3.384.022-.237a1.114,1.114,0,0,0-.326-.785L10.751,1,5.872,5.879a1.471,1.471,0,0,0-.429,1.044v7.4A1.485,1.485,0,0,0,6.923,15.808Zm0-8.885L10.136,3.71,9.144,7.663h6.663V9.144l-2.221,5.183H6.923ZM1,6.923H3.962v8.885H1Z"
+                                            transform="translate(-1 -1)" fill="#f6c700" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <span class="agreebtn-num">동의 수</span>
+                    </button>
+                    <div class="board-line"></div>
+                    <div class="board-steps">
+                        <div class="board-steps-list" id="step-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="57" viewBox="0 0 33 57">
+                                <text id="제안됨" transform="translate(17 55)" fill="#f6c700" font-size="8"
+                                    font-family="NanumSquareB, NanumSquare">
+                                    <tspan x="-10.92" y="0">제안됨</tspan>
+                                </text>
+                                <g id="타원_1" data-name="타원 1" fill="none" stroke="#f6c700" stroke-width="1">
+                                    <circle cx="16.5" cy="16.5" r="16.5" stroke="none" />
+                                    <circle cx="16.5" cy="16.5" r="16" fill="none" />
+                                </g>
+                                <g id="그룹_5" data-name="그룹 5" transform="translate(-8.198 -169.304)">
+                                    <g id="그룹_15" data-name="그룹 15" transform="translate(17.96 177.863)">
+                                        <path id="패스_12" data-name="패스 12"
+                                            d="M4.332,0H0L4.813,6.738,0,13.476H4.332L9.144,6.738Z"
+                                            transform="translate(0 9.144) rotate(-90)" fill="#f6c700" />
+                                        <path id="패스_13" data-name="패스 13"
+                                            d="M4.332,0H0L4.813,6.738,0,13.476H4.332L9.144,6.738Z"
+                                            transform="translate(0 15.882) rotate(-90)" fill="#f6c700" />
+                                    </g>
+                                </g>
+                                <path id="다각형_4" data-name="다각형 4" d="M3.5,0,7,6H0Z" transform="translate(13 39)"
+                                    fill="#f6c700" />
+                            </svg>
+                        </div>
+                        <div class="board-steps-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="14" viewBox="0 0 6 14">
+                                <path id="다각형_1" data-name="다각형 1" d="M7,0l7,6H0Z" transform="translate(6) rotate(90)"
+                                    fill="#707070" />
+                            </svg>
+                        </div>
+                        <div class="board-steps-list" id="step-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="57" viewBox="0 0 34 57">
+                                <text id="의결_대기중" data-name="의결 대기중" transform="translate(17 55)" fill="#707070"
+                                    font-size="7" font-family="NanumSquareB, NanumSquare">
+                                    <tspan x="-16.8" y="0">의결 대기중</tspan>
+                                </text>
+                                <g id="타원_2" data-name="타원 2" fill="none" stroke="#707070" stroke-width="1">
+                                    <circle cx="16.5" cy="16.5" r="16.5" stroke="none" />
+                                    <circle cx="16.5" cy="16.5" r="16" fill="none" />
+                                </g>
+                                <path id="다각형_5" data-name="다각형 5" d="M3.5,0,7,6H0Z" transform="translate(13 39)"
+                                    fill="#707070" />
+                                <g id="hourglass_top-24px" transform="translate(7.498 7.091)">
+                                    <g id="그룹_9" data-name="그룹 9" transform="translate(0 -0.091)">
+                                        <rect id="사각형_16" data-name="사각형 16" width="19" height="19"
+                                            transform="translate(-0.498)" fill="none" />
+                                    </g>
+                                    <g id="그룹_10" data-name="그룹 10" transform="translate(4.501 1.527)">
+                                        <path id="패스_26" data-name="패스 26"
+                                            d="M6,2l.008,4.5L9,9.5,6.008,12.509,6,17h9V12.5l-3-3,3-2.993V2Zm7.5,10.876V15.5h-6V12.876l3-3Z"
+                                            transform="translate(-6 -2)" fill="#707070" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="board-steps-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="14" viewBox="0 0 6 14">
+                                <path id="다각형_1" data-name="다각형 1" d="M7,0l7,6H0Z" transform="translate(6) rotate(90)"
+                                    fill="#707070" />
+                            </svg>
+                        </div>
+                        <div class="board-steps-list" id="step-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="57" viewBox="0 0 35 57">
+                                <text id="의결_진행중" data-name="의결 진행중" transform="translate(18 55)" fill="#707070"
+                                    font-size="7" font-family="NanumSquareB, NanumSquare">
+                                    <tspan x="-16.8" y="0">의결 진행중</tspan>
+                                </text>
+                                <g id="타원_3" data-name="타원 3" fill="none" stroke="#707070" stroke-width="1">
+                                    <circle cx="16.5" cy="16.5" r="16.5" stroke="none" />
+                                    <circle cx="16.5" cy="16.5" r="16" fill="none" />
+                                </g>
+                                <path id="다각형_6" data-name="다각형 6" d="M3.5,0,7,6H0Z" transform="translate(14 39)"
+                                    fill="#707070" />
+                                <g id="Recommendation" transform="translate(-1.033 -1.5)">
+                                    <path id="패스_3" data-name="패스 3"
+                                        d="M16.55,76.95h-.475V76H9.425v.95H8.95a.95.95,0,0,0,0,1.9h7.6a.95.95,0,0,0,0-1.9Z"
+                                        transform="translate(0 -51.85)" fill="#707070" />
+                                    <path id="패스_4" data-name="패스 4"
+                                        d="M25.676,44.164a.689.689,0,0,0,0-1l-3.753-3.753a.689.689,0,0,0-1,0L20,40.34l4.75,4.75Z"
+                                        transform="translate(-9.15 -23.79)" fill="#707070" />
+                                    <path id="패스_5" data-name="패스 5"
+                                        d="M55.166,13.676a.689.689,0,0,0,1,0l.926-.926L52.34,8l-.926.926a.689.689,0,0,0,0,1Z"
+                                        transform="translate(-32.94 0)" fill="#707070" />
+                                    <path id="패스_6" data-name="패스 6"
+                                        d="M43.537,29.637l-6.412-6.413L38.55,21.8,34.75,18,30,22.75l3.8,3.8,1.9-1.9,6.412,6.412a1.008,1.008,0,1,0,1.425-1.425Z"
+                                        transform="translate(-16.775 -7.625)" fill="#707070" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="board-steps-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="14" viewBox="0 0 6 14">
+                                <path id="다각형_1" data-name="다각형 1" d="M7,0l7,6H0Z" transform="translate(6) rotate(90)"
+                                    fill="#707070" />
+                            </svg>
+                        </div>
+                        <div class="board-steps-list" id="step-4-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="57" viewBox="0 0 33 57">
+                                <text id="가결" transform="translate(17 55)" fill="#707070" font-size="7"
+                                    font-family="NanumSquareB, NanumSquare">
+                                    <tspan x="-6.37" y="0">가결</tspan>
+                                </text>
+                                <g id="타원_4" data-name="타원 4" fill="none" stroke="#707070" stroke-width="1">
+                                    <circle cx="16.5" cy="16.5" r="16.5" stroke="none" />
+                                    <circle cx="16.5" cy="16.5" r="16" fill="none" />
+                                </g>
+                                <path id="다각형_7" data-name="다각형 7" d="M3.5,0,7,6H0Z" transform="translate(13 39)"
+                                    fill="#707070" />
+                                <g id="done-24px" transform="translate(10.191 6.5)">
+                                    <path id="패스_28" data-name="패스 28" d="M0,0H19V19H0Z" transform="translate(-3.191)"
+                                        fill="none" />
+                                    <path id="패스_29" data-name="패스 29"
+                                        d="M7.833,13.992,4.508,10.667,3.4,11.775l4.433,4.433,9.5-9.5L16.225,5.6Z"
+                                        transform="translate(-4.058 -1.167)" fill="#707070" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="board-steps-vline"></div>
+                        <div class="board-steps-list" id="step-4-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="57" viewBox="0 0 33 57">
+                                <text id="기각" transform="translate(18 55)" fill="#707070" font-size="7"
+                                    font-family="NanumSquareB, NanumSquare">
+                                    <tspan x="-6.37" y="0">기각</tspan>
+                                </text>
+                                <g id="타원_5" data-name="타원 5" fill="none" stroke="#707070" stroke-width="1">
+                                    <circle cx="16.5" cy="16.5" r="16.5" stroke="none" />
+                                    <circle cx="16.5" cy="16.5" r="16" fill="none" />
+                                </g>
+                                <path id="다각형_8" data-name="다각형 8" d="M3.5,0,7,6H0Z" transform="translate(14 39)"
+                                    fill="#707070" />
+                                <g id="close-24px" transform="translate(7 7)">
+                                    <path id="패스_31" data-name="패스 31" d="M0,0H19V19H0Z" fill="none" />
+                                    <path id="패스_32" data-name="패스 32"
+                                        d="M16.124,6.12,15,5,10.562,9.442,6.12,5,5,6.12l4.442,4.442L5,15l1.12,1.12,4.442-4.442L15,16.124,16.124,15l-4.442-4.442Z"
+                                        transform="translate(-1.062 -1.062)" fill="#707070" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="board-line"></div>
+                    <div class="board-steps-des">
+                        <div class="board-steps-des-title">
+                            '제안됨' 단계에서는...
+                        </div>
+                        <div class="board-steps-des-content">
+                            사람들이 건의안을 살펴본 후 위의 '동의'를 눌러 투표할 것입니다. n표가 되면, '의결 대기중' 상태로
+                            넘어가서 의결이 시작되기를 기다리시면 됩니다.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="board-reply">
+                    <div class="input-section">
+                        <input type="text" class="board-reply-input" placeholder="여기에 댓글 입력...">
+                        <div class="board-reply-send">
+                            <svg id="send-24px" xmlns="http://www.w3.org/2000/svg" width="14.362" height="14.362"
+                                viewBox="0 0 14.362 14.362">
+                                <path id="path_33" data-name="패스 33" d="M0,0H14.362V14.362H0Z" fill="none" />
+                                <path id="path_34" data-name="패스 34"
+                                    d="M2.006,13.772,14.567,8.386,2.006,3,2,7.189l8.977,1.2L2,9.583Z"
+                                    transform="translate(-0.803 -1.205)" fill="#a2a2a2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- 댓글이 없을 경우 -->
+                    <div class="board-reply-list">
+                        <div class="reply-stat-info">
+                            <div class="reply-profile">
+                                <div class="reply-profile-picture">
+                                    <img id="reply-profile-picture" src="/images/integrity.png" alt="">
+                                </div>
+                                <div class="reply-authorinfo">
+                                    <div class="reply-authorname">시스템 메세지</div>
+                                    <div class="reply-authordate">
+                                        날짜
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reply-content">
+                            아직 아무도 댓글을 적지 않았습니다.<br>먼저 댓글을 달아 당신의 의견을 표현해주세요.
+                        </div>
+                        <div class="reply-line"></div>
+                    </div>
+                    <div class="board-reply-list">
+                        <div class="reply-stat-info">
+                            <div class="reply-profile">
+                                <div class="reply-profile-picture">
+                                    <img id="reply-profile-picture" src="/images/DefaultIcon.png" alt="">
+                                </div>
+                                <div class="reply-authorinfo">
+                                    <div class="reply-authorname">
+                                        학번
+                                    </div>
+                                    <div class="reply-authordate">
+                                        날짜
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reply-settings">
+                                <button style="background:none; border: none;"><svg xmlns="http://www.w3.org/2000/svg"
+                                        height="24" viewBox="0 0 24 24" width="24">
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                                    </svg></button>
+
+                                <ul>
+                                    <li><a href="">신고</a></li>
+                                    <li><a href="">삭제</a></li>
+                                    <li><a href="">신고 리스트</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="reply-content">
+                            댓글
+                        </div>
+                        <div class="reply-line"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <%- include("../modules/bottom_m.ejs") %>
+</body>
+
+</html>

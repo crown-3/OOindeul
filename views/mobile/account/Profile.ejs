@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/css/mobile/Profile.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        $("#logout").addEventListener("click", () => {
+          window.location = "/logout";
+        });
+        $("#changePassword").addEventListener("click", () => {
+          window.location = "/changePassword";
+        });
+        $("#discord").addEventListener("click", () => {
+          window.location = "/discord";
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <%- include("../modules/header_m.ejs") %> <%-
+    include("../modules/header_m_script.ejs") %>
+    <div id="main">
+      <div class="belt">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="111.947"
+          height="25"
+          viewBox="0 0 111.947 25"
+        >
+          <path
+            id="패스_1"
+            data-name="패스 1"
+            d="M12.5,0,25,13.347V33.974H0V13.347Z"
+            transform="translate(0 25) rotate(-90)"
+            fill="#f6c700"
+          />
+          <path
+            id="패스_2"
+            data-name="패스 2"
+            d="M12.5,0,25,13.347V33.974H0V13.347Z"
+            transform="translate(111.947) rotate(90)"
+            fill="#f6c700"
+          />
+          <rect
+            id="사각형_3"
+            data-name="사각형 3"
+            width="52"
+            height="25"
+            transform="translate(30.974)"
+            fill="#f6c700"
+          />
+          <g id="Profile" transform="translate(31.811 -11)">
+            <circle
+              id="타원_4"
+              data-name="타원 4"
+              cx="4"
+              cy="4"
+              r="4"
+              transform="translate(20.326 14)"
+            />
+            <path
+              id="패스_35"
+              data-name="패스 35"
+              d="M32.326,58.163V54.081a2.13,2.13,0,0,0-.816-1.633A11.13,11.13,0,0,0,27.53,50.51,11.651,11.651,0,0,0,24.163,50a12.83,12.83,0,0,0-3.367.51,13.128,13.128,0,0,0-3.979,1.939A2.13,2.13,0,0,0,16,54.081v4.082Z"
+              transform="translate(0 -26.817)"
+            />
+          </g>
+        </svg>
+      </div>
+
+      <div class="logopng"><img src="/images/DefaultIcon.png" alt="" /></div>
+      <div class="profile-title">프로필</div>
+
+      <div class="boldline"></div>
+
+      <div class="first-profile-list">
+        <div class="profile-name-wrap">
+          <span class="profile-f">이름</span>
+          <span class="profile-f-info"> <%= data.name %> </span>
+        </div>
+        <div class="vertical-thin-line"></div>
+        <div class="profile-stno-wrap">
+          <span class="profile-f">학번</span>
+          <span class="profile-f-info"> <%= data.number %> </span>
+        </div>
+      </div>
+
+      <div class="thinline"></div>
+
+      <div class="second-profile-list">
+        <span class="profile-f">이메일</span>
+        <div class="profile-s-input"><%= data.email %></div>
+      </div>
+
+      <div class="boldline"></div>
+      <% if (data.permissions) { %>
+      <div class="permission-show-wrap">
+        <div class="permission">권한</div>
+
+        <div class="menu-permission">
+          <div class="menu-permission-line"></div>
+          <% for (i in data.permissions) { %> <% switch (data.permissions[i]) {
+          case 'A' : %>
+          <div class="menu-permission-img" id="Administrator">
+            <img src="../Images/Administrator.png" alt="" />
+          </div>
+          <% break; case 'M' : %>
+          <div class="menu-permission-img" id="Manager">
+            <img src="../Images/Manager.png" alt="" />
+          </div>
+          <% break; case 'J' : %>
+          <div class="menu-permission-img" id="Master_Jury">
+            <img src="../Images/Master Jury.png" alt="" />
+          </div>
+          <% break; } %> <% } %>
+        </div>
+
+        <div class="boldline"></div>
+      </div>
+      <% } %>
+
+      <div class="extra">
+        <input
+          id="logout"
+          type="button"
+          class="extra-options"
+          value="로그아웃"
+        />
+        <input
+          id="changePassword"
+          type="button"
+          class="extra-options"
+          value="비밀번호 변경"
+        />
+      </div>
+
+      <input
+        id="discord"
+        type="button"
+        class="go-discord"
+        value="OO인들 디스코드 서버 입장"
+        style="display: block"
+      />
+      <% if (data.permissions && data.permissions.find(i => i == "J")) { %>
+      <input
+        type="button"
+        class="go-CP"
+        value="CONTROL PANEL"
+        style="display: block"
+      />
+      <% } %>
+      <div class="extra2">
+        개명이나 기타 사유로 인하여 이름을 바꾸고 싶은 분께서는 학생회 임원에게
+        연락해 주세요. 학번은 매년 초에 변경할 수 있게 해 드리고 있습니다.
+      </div>
+    </div>
+
+    <%- include("../modules/bottom_m.ejs") %>
+  </body>
+</html>

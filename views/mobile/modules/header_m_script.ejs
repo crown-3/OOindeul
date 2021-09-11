@@ -1,0 +1,94 @@
+<script type="text/javascript">
+    let menutype = false;
+    let page = 0;
+
+    const $ = (element) => {
+        let list = document.querySelectorAll(element);
+        return list ? list.length > 1 ? list : list[0] : null;
+    };
+    $("html").addEventListener("DOMContentLoaded", function () {
+        $("html").trigger("orientationchange");
+    });
+
+    $("html").addEventListener("orientationchange", function (e) {
+        var pc_device = "win16|win32|win64|mac|macintel";
+        // 접속한 디바이스 환경
+        var this_device = navigator.platform;
+        if (this_device) {
+            // MOBILE
+            if (pc_device.indexOf(navigator.platform.toLowerCase()) < 0) {
+                var orientation = window.orientation;
+
+                if (orientation == 90 || orientation == -90) {
+                    alert("웹사이트에서 가로모드를 지원하지 않아 디자인이 깨질 수 있습니다.");
+                }
+            }
+        }
+    });
+
+    $("body").addEventListener("DOMContentLoaded", function () {
+        $(".menu-info-goto-mainpg").addEventListener("click", (ele) => {
+            location.href = "/"
+        });
+        $(".menu-info-goto-profile").addEventListener("click", (ele) => {
+            location.href = "/profile"
+        });
+        $(".menu-info-profile").addEventListener("click", (ele) => {
+            window.location = "/login";
+        });
+    });
+    let list = [
+        {
+            "name": "건의",
+            "description": "자신만의 의견을 제시하세요."
+        },
+        {
+            "name": "자유게시판",
+            "description": "서로 정보를 주고 받으세요."
+        },
+        {
+            "name": "피드백",
+            "description": "개발자에게 원하는 사항을 요구하세요."
+        },
+        {
+            "name": "동아리",
+            "description": "OO고등학교 동아리 모여라!"
+        }
+    ];
+
+    function menuopen() {
+        switch (menutype) {
+            case false:
+                $(".menu").style.zIndex = "999";
+                $(".menu").style.opacity = "1";
+                menutype = true;
+                break;
+            default:
+                $(".menu").style.zIndex = "-1";
+                $(".menu").style.opacity = "0";
+                menutype = false;
+                break;
+        }
+    }
+
+    function slide(type) {
+        switch (type) {
+            case "right":
+                if (page === 3) return;
+                page++
+                setPage();
+                break;
+            default:
+                if (page === 0) return;
+                page--
+                setPage();
+                break;
+        }
+        $(".menu-description-text-title").innerHTML = list[page].name
+        $(".menu-description-text-e").innerHTML = list[page].description
+    }
+
+    function setPage() {
+        $(".menu-icons-back-wrap").style.marginLeft = `calc(50vw - 42.5px - ${85 * page}px - ${10 * page}vw)`;
+    }
+</script>

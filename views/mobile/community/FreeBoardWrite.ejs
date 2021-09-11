@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/public/css/mobile/FreeBoardWrite.css">
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    </script>
+</head>
+
+<body> <!--게시글 작성자가 선생님이면 무조건 PUBLIC에 등재되는거 잊지말기-->
+
+    <%- include("../modules/header_m.ejs") %>
+
+
+    <div id="main">
+
+        <main>
+            <div class="titlebox">
+                <div class="tsvg">
+                    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" id="Icons_Pencil" overflow="hidden">
+                        <path
+                            d="M25 71.1C27 73.1 27 76.2 25 78.2L16.5 81 15 79.5 17.8 71C19.9 69.1 23 69.1 25 71.1ZM64.3 18.9 14.3 69 8 88 27.1 81.7 77.1 31.7" />
+                        <path
+                            d="M86.9 16.2 79.8 9.1C78.2 7.5 75.7 7.5 74.1 9.1L67.1 16.1 79.8 28.8 86.8 21.8C88.5 20.3 88.5 17.8 86.9 16.2Z" />
+                    </svg>
+                </div>
+
+                <div class="title">게시물 작성</div>
+            </div>
+
+            <div class="boldline"></div>
+
+            <div class="form">
+                <div class="formcontent">
+                    <textarea placeholder="내용을 작성하시기 전에 유의사항을 꼭 읽어 주세요." class="contentarea" cols="30"
+                        rows="10"></textarea>
+                </div>
+            </div>
+            <div class="categoryselection-title">
+                    카테고리 설정
+            </div>
+            <div class="categoryselection">
+                
+                <div class="notice">
+                    <label for="category-1">
+                    <input type="radio" id="category-1" name="report-radio-field" class="report-radioA">
+                    <div class="actual-radio"></div>
+                    </label>
+                    <span>공지</span>
+                </div>
+                <div class="notice">
+                    <label for="category-2">
+                    <input type="radio" id="category-2" name="report-radio-field" class="report-radioA">
+                    <div class="actual-radio"></div>
+                    </label>
+                    <span>자유글</span>
+                </div>
+                <div class="notice">
+                    <label for="category-3">
+                    <input type="radio" id="category-3" name="report-radio-field" class="report-radioA">
+                    <div class="actual-radio"></div>
+                    </label>
+                    <span>질문/토론</span>
+                </div>
+
+            </div>
+
+            <div class="attachmentboard">
+                <div class="attachtitle">첨부 파일</div>
+                
+                <label for="searchfile" class="addbtn">
+                    <svg class="clipsvg" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" id="Icons_Paperclip_M" overflow="hidden">
+                        <g id="Icons">
+                            <path
+                                d="M48.9 88 49.1 88C58.4293 87.9895 65.9895 80.4293 66 71.1L66 50 64 50 64 71.1C63.9906 79.3252 57.3252 85.9906 49.1 86L48.9 86C40.6748 85.9906 34.0094 79.3252 34 71.1L34 19.9C34.0061 14.4349 38.4349 10.0061 43.9 10L44.1 10C49.5651 10.0061 53.9939 14.4349 54 19.9L54 67.1C53.9972 69.8051 51.8051 71.9972 49.1 72L48.9 72C46.195 71.9972 44.0028 69.8051 44 67.1L44 43 42 43 42 67.1C42.0039 70.9092 45.0908 73.9961 48.9 74L49.1 74C52.9092 73.9961 55.9961 70.9092 56 67.1L56 19.9C55.9928 13.3308 50.6692 8.00716 44.1 8L43.9 8C37.3308 8.00716 32.0072 13.3308 32 19.9L32 71.1C32.0105 80.4293 39.5707 87.9895 48.9 88Z" />
+                        </g>
+                    </svg>
+                    <div class="verticalline"></div>
+                    <div class="addcon">첨부파일 추가하기</div>
+                </label>
+                <input type="file" id="searchfile" style="display: none">
+                
+                <div class="maximum">업로드 용량 제한 : 8MB</div>
+                
+                <div class="attachlist"> <!--첨부파일이 없으면 display:none;-->
+
+                    <div class="thead">
+
+                    <div class="checkdiv"><input type="checkbox" class="check"></div>
+                    <div class="t-filename">파일명</div>
+                    <div class="t-capacity">용량</div>
+                
+                    </div>
+
+                    <div class="tbody">
+
+                        <div class="checkdiv"><input type="checkbox" class="check"></div>
+                        <div class="filename">[파일명]</div>
+                        <div class="capacity">[용량]</div>
+                    
+                    </div>
+    
+                    <div class="tbody">
+
+                        <div class="checkdiv"><input type="checkbox" class="check"></div>
+                        <div class="filename">[파일명]</div>
+                        <div class="capacity">[용량]</div>
+                    
+                    </div>
+
+                    <div class="tfoot"></div>
+                </div>
+
+                <div class="attachmentremove-div">
+                    <input type="button" class="attachmentremove" value="선택한 파일 삭제하기">
+                </div>
+
+                <div class="boldline"></div>
+
+            </div>
+
+            <div class="cautionboard">
+                <div class="cautiontitle">작성 시 유의사항</div>
+                <p>OO인들은 사상과 표현의 다양성을 존중합니다. 동시에 타인의 권리를 침해하거나 명예를 훼손하는 내용은 제한합니다. 방송통신심의위원회의 '정보통신에 관한 심의 규정',
+                    한국인터넷자율정책기구의 '정책규정' 등을 기반으로 문제 게시물은 삭제될 수 있습니다. 자극적이고 혐오스러운 내용, 비속어, 폭력적 내용, 특정 대상을 비하하거나
+                    차별을 조장하는
+                    내용, 개인정보 유출을 비롯해 타인의 권리를 침해하는 내용, 반복되는 내용, 허위사실 등은 삭제 처리될 수 있습니다.
+                </p>
+                <p>한 번 작성된 게시물은 수정 및 삭제가 불가능합니다. 신중하게 작성하여 주시기 바랍니다.
+                </p>
+            </div>
+
+            <div class="btndiv">
+                <input type="button" class="submit" value="작성 완료"> <input type="button" class="cancel" value="작성 취소">
+            </div>
+        </main>
+
+    </div>
+    
+    <%- include("../modules/bottom_m.ejs") %>
+</body>
+
+</html>

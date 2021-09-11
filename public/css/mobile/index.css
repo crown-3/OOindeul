@@ -1,0 +1,218 @@
+@font-face{
+    src: url("/fonts/NanumSquareB.ttf");
+    src: url("/fonts/NanumSquareEB.ttf");
+    src: url("/fonts/NanumSquareL.ttf");
+    src: url("/fonts/NanumSquareR.ttf");
+    font-family: "나눔스퀘어";
+}
+
+*{
+    font-family: 나눔스퀘어;
+    --bg-primaryvar:#F6C700;
+    --bg-secondary:#000;
+    --bg-A:#b49300;
+    --bg-default:#fff;
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track{
+    background: var(--bg-secondary);
+}
+
+body::-webkit-scrollbar-thumb{
+    background:var(--bg-primaryvar);
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:25px 0;
+    background-color: var(--bg-secondary);
+    height: 0;
+    border-bottom:var(--bg-primaryvar) solid 4px;
+}
+
+.logo {
+    cursor: pointer;
+    width:50px;
+    transition: .1s;
+}
+
+#main{
+    min-height: calc(100vh - 54px - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main{
+    margin: 0;
+    padding: 0;
+    background:var(--bg-default);
+}
+
+.slider-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.head{
+    text-align: center;
+    font-weight: 900;
+    font-size:35px;
+    animation-duration: 1.5s;
+    animation-name: headani;
+    animation-fill-mode: forwards;
+}
+
+.s-head{
+    text-align: center;
+    font-weight: bolder;
+    opacity: 0%;
+    margin-bottom: 30px;
+    font-size:15px;
+    animation-delay: .4s;
+    animation-duration: 1.5s;
+    animation-name: s-headani;
+    animation-fill-mode: forwards;
+}
+
+@keyframes headani{
+    from{
+        margin-top: 0px;
+        opacity: 0%;
+    }
+    to{
+        margin-top: 50px;
+        opacity: 100%;
+    }
+}
+
+@keyframes s-headani{
+    from{
+        margin-right: 60px;
+        opacity: 0%;
+    }
+    to{
+        margin-top: 0px;
+        opacity: 100%;
+    }
+}
+
+.slider{
+    width: 300px;
+    height: 210px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides{
+    width: 500%;
+    height: 125px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition:.3s;
+}
+
+.slider img{
+    width: 300px;
+}
+
+.navigation-manual{
+    width: 300px;
+    margin-top:50px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border:2px solid var(--bg-secondary);
+    padding:4px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 20px;
+}
+
+.manual-btn:hover{
+    background:var(--bg-secondary);
+}
+
+#sr-1:checked ~.first{
+    margin-left: 0;
+}
+
+#sr-2:checked ~.first{
+    margin-left: -20%;
+}
+
+#sr-3:checked ~.first{
+    margin-left: -40%;
+}
+
+#sr-4:checked ~.first{
+    margin-left: -60%;
+}
+
+.img-content{
+    text-align: center;
+}
+
+.content-head{
+    font-size: 30px;
+    font-weight: bold;
+    animation-name: img-c-animation-head;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.content-shead{
+    font-size: 20px;
+    margin-top: 5px;
+    animation-name: img-c-animation-shead;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.content-con{
+    margin-top:10px;
+    margin-bottom: 50px;
+    font-size: 13px;
+    animation-name: img-c-animation-content;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.bottom{
+    border-top:var(--bg-primaryvar) solid 4px;
+    width:100%;
+    height: 90px;
+    text-align: center;
+    background: var(--bg-secondary);
+    color:#b6b6b6;
+    font-size: 12px;
+}
+
+.bottomtext{
+    padding-top:15px;
+}

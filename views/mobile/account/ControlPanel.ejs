@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/css/mobile/ControlPanel.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+<body>
+
+    <%- include("../modules/header_m.ejs") %>
+
+    <div id="main">
+        <div class="MJIcon">
+            <img src="/images/Master Jury.png" alt="">
+        </div>
+        <div class="CPTitle">
+            CONTROL PANEL
+        </div>
+        <div class="CPDes">
+            자세한 사용 방법은 OO인들 MANUAL을 참고하세요
+        </div>
+        <div class="diamondline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="288.75" height="11.574" viewBox="0 0 288.75 11.574">
+                <g id="그룹_1" data-name="그룹 1" transform="translate(42.125)">
+                  <line id="선_1" data-name="선 1" x1="288.75" transform="translate(-42.125 5.787)" fill="none" stroke="#f6c700" stroke-width="1"/>
+                  <g id="사각형_4" data-name="사각형 4" transform="translate(102.25) rotate(45)" fill="#262626" stroke="#f6c700" stroke-width="1">
+                    <rect width="8.184" height="8.184" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="7.184" height="7.184" fill="none"/>
+                  </g>
+                </g>
+            </svg>              
+        </div>
+        <div class="input-section">
+            <input type="text" class="board-reply-input" placeholder="Search">
+            <div class="board-reply-send">
+                <svg id="search_white_24dp" xmlns="http://www.w3.org/2000/svg" width="17.402" height="17.402" viewBox="0 0 17.402 17.402">
+                    <path id="패스_1" data-name="패스 1" d="M0,0H17.4V17.4H0Z" fill="none"/>
+                    <path id="패스_2" data-name="패스 2" d="M12.064,10.976h-.573l-.2-.2a4.72,4.72,0,1,0-.508.508l.2.2v.573L14.6,15.682l1.08-1.08Zm-4.351,0a3.263,3.263,0,1,1,3.263-3.263A3.259,3.259,0,0,1,7.713,10.976Z" transform="translate(-0.825 -0.825)" fill="#fff"/>
+                </svg>                  
+            </div>
+        </div>
+        <div class="tableHead">
+            <div class="tableHead-Item">학번</div>
+            <div class="tableHead-Item">이름</div>
+            <div class="tableHead-Item">M권한</div>
+        </div>
+        <div class="greyline"></div>
+        
+        <div class="tableItem">
+            <div class="tableItem-Item">0000</div>
+            <div class="tableItem-Item">홍길동</div>
+            <div class="tableItem-Item">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <svg id="add_circle_black_24dp" xmlns="http://www.w3.org/2000/svg" width="14.288" height="14.288" viewBox="0 0 14.288 14.288">
+                    <path id="패스_3" data-name="패스 3" d="M0,0H14.288V14.288H0Z" fill="none"/>
+                    <path id="패스_4" data-name="패스 4" d="M7.953,2a5.953,5.953,0,1,0,5.953,5.953A5.956,5.956,0,0,0,7.953,2ZM10.93,8.549H8.549V10.93H7.358V8.549H4.977V7.358H7.358V4.977H8.549V7.358H10.93Z" transform="translate(-0.809 -0.809)" fill="#fff"/>
+                    </svg>    
+                </div>
+                              
+            </div>
+        </div>
+
+        <div class="tableItem">
+            <div class="tableItem-Item" style="color: #F6C700">0000</div>
+            <div class="tableItem-Item" style="color: #F6C700">홍길동</div>
+            <div class="tableItem-Item">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <svg id="cancel_black_24dp" xmlns="http://www.w3.org/2000/svg" width="14.288" height="14.288" viewBox="0 0 14.288 14.288">
+                        <path id="패스_5" data-name="패스 5" d="M0,0H14.288V14.288H0Z" fill="none"/>
+                        <path id="패스_6" data-name="패스 6" d="M7.953,2a5.953,5.953,0,1,0,5.953,5.953A5.948,5.948,0,0,0,7.953,2Zm2.977,8.091-.839.839L7.953,8.793,5.816,10.93l-.839-.839L7.114,7.953,4.977,5.816l.839-.839L7.953,7.114l2.137-2.137.839.839L8.793,7.953Z" transform="translate(-0.809 -0.809)" fill="#f6c700"/>
+                    </svg>                        
+                </div>
+                              
+            </div>
+        </div>
+
+    </div>
+
+    
+    <%- include("../modules/bottom_m.ejs") %>
+
+</body>
+
+</html>

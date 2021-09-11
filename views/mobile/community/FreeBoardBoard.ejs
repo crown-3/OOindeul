@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO인들</title>
+    <link rel="stylesheet" href="/public/css/mobile/FreeBoardBoard.css">
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <%- include("../modules/header_m.ejs") %>
+
+    <div id="main">
+        <div class="belt">
+            <svg xmlns="http://www.w3.org/2000/svg" width="111.947" height="25" viewBox="0 0 111.947 25">
+                <path id="패스_1" data-name="패스 1" d="M12.5,0,25,13.347V33.974H0V13.347Z" transform="translate(0 25) rotate(-90)" fill="#f6c700"/>
+                <path id="패스_2" data-name="패스 2" d="M12.5,0,25,13.347V33.974H0V13.347Z" transform="translate(111.947) rotate(90)" fill="#f6c700"/>
+                <rect id="사각형_3" data-name="사각형 3" width="52" height="25" transform="translate(30.974)" fill="#f6c700"/>
+                <path id="Poll" d="M28.672,23.423H18.251V10.5h2.293v1.251h5.836V10.5h2.293ZM23.461,8.834a.625.625,0,1,1-.625.625.641.641,0,0,1,.625-.625Zm5.627.417H25.545V8.834A.836.836,0,0,0,24.712,8h-2.5a.836.836,0,0,0-.834.834v.417H17.834a.836.836,0,0,0-.834.834V23.84a.836.836,0,0,0,.834.834H29.088a.836.836,0,0,0,.834-.834V10.084A.836.836,0,0,0,29.088,9.251Z" transform="translate(32.013 -4.564)"/>
+              </svg>  
+        </div>
+
+        <div class="board">
+            <div class="stat-info">
+                <div class="profile">
+                    <div class="profile-picture">
+                        <img id="profile-picture" src="/public/images/DefaultIcon.png" alt="">
+                    </div>
+                    <div class="authorinfo">
+                        <div class="authorname">0000 홍길동</div>
+                        <div class="authordate">2021.03.16</div>
+                    </div>
+                </div>
+                <div class="status"> <!--PUBLIC 게시물 아니면 이부분 display:none 처리 해주셈-->
+                    <div class="status-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+                            <g id="verified-24px" transform="translate(0 0.241)">
+                              <g id="그룹_22" data-name="그룹 22" transform="translate(0 -0.241)">
+                                <rect id="사각형_38" data-name="사각형 38" width="23" height="23" fill="none"/>
+                              </g>
+                              <g id="그룹_23" data-name="그룹 23" transform="translate(0.93 1.823)">
+                                <path id="패스_43" data-name="패스 43" d="M21.471,11.27l-2.27-2.6.316-3.434-3.359-.763L14.4,1.5,11.235,2.859,8.072,1.5,6.313,4.468l-3.359.754L3.27,8.665,1,11.27l2.27,2.6-.316,3.443,3.359.763L8.072,21.04l3.164-1.368L14.4,21.031l1.759-2.968,3.359-.763L19.2,13.866ZM9.458,15.662,5.922,12.117,7.3,10.74l2.159,2.168L14.9,7.446l1.377,1.377Z" transform="translate(-1 -1.5)" fill="#00d910"/>
+                              </g>
+                            </g>
+                        </svg>                          
+                    </div>
+                    <div class="status-des">
+                        PUBLIC
+                    </div>
+                </div>
+            </div>
+            <div class="title-content">
+                제목으로 쓸 말이 없네요. 사람들이 저의 글을 봐
+                주었으면 좋겠어요. 그리고 이것을 하는 게 정말 힘
+                들다는 사실을 좀 알아 주었으면 좋겠어요.
+            </div>
+            <div class="board-line"></div>
+            <div class="boardmenu">
+                <div class="boardmenu-lists">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+                    </svg>
+                    <a href="" id="report">신고</a>
+                </div>
+                <div class="boardmenu-lines"></div>
+                <div class="boardmenu-lists">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                    </svg>
+                    <a href="" id="remove">삭제</a>
+                </div>
+                <div class="boardmenu-lines"></div>
+                <div class="boardmenu-lists">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z" />
+                    </svg>
+                    <a href="" id="view-reportlists">신고 리스트</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="board-download">
+            <div class="attachlist"> <!--첨부파일이 없으면 display:none;-->
+
+                <div class="thead">
+
+                <div class="checkdiv"><input type="checkbox" class="check"></div>
+                <div class="t-filename">파일명</div>
+                <div class="t-capacity">용량</div>
+            
+                </div>
+
+                <div class="tbody">
+
+                    <div class="checkdiv"><input type="checkbox" class="check"></div>
+                    <div class="filename">[파일명]</div>
+                    <div class="capacity">[용량]</div>
+                
+                </div>
+
+                <div class="tbody">
+
+                    <div class="checkdiv"><input type="checkbox" class="check"></div>
+                    <div class="filename">[파일명]</div>
+                    <div class="capacity">[용량]</div>
+                
+                </div>
+
+                <div class="tfoot"></div>
+                <button class="attatchment-download">선택한 파일 다운로드</button>
+            </div>
+        </div>
+
+        <div class="board-reply">
+            <div class="category-display">
+                카테고리 : Not Found
+            </div>
+            <button class="agreebtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21.012" height="21.012" viewBox="0 0 21.012 21.012">
+                    <g id="done-24px" transform="translate(3.191)">
+                      <path id="패스_28" data-name="패스 28" d="M0,0H21.012V21.012H0Z" transform="translate(-3.191)" fill="none"/>
+                      <path id="패스_29" data-name="패스 29" d="M8.3,14.88,4.626,11.2,3.4,12.429l4.9,4.9L18.809,6.826,17.583,5.6Z" transform="translate(-3.79 -0.697)" fill="#00d910"/>
+                    </g>
+                  </svg>
+                  
+
+                <span class="agreebtn-num">중요</span>
+            </button>
+            <div class="input-section">
+                <input type="text" class="board-reply-input" placeholder="여기에 댓글 입력...">
+                <div class="board-reply-send">
+                    <svg id="send-24px" xmlns="http://www.w3.org/2000/svg" width="14.362" height="14.362"
+                        viewBox="0 0 14.362 14.362">
+                        <path id="패스_33" data-name="패스 33" d="M0,0H14.362V14.362H0Z" fill="none" />
+                        <path id="패스_34" data-name="패스 34"
+                            d="M2.006,13.772,14.567,8.386,2.006,3,2,7.189l8.977,1.2L2,9.583Z"
+                            transform="translate(-0.803 -1.205)" fill="#a2a2a2" />
+                    </svg>
+                </div>
+            </div>
+            <div class="board-reply-list">
+                <div class="reply-stat-info">
+                    <div class="reply-profile">
+                        <div class="reply-profile-picture">
+                            <img id="reply-profile-picture" src="/public/images/DefaultIcon.png" alt="">
+                        </div>
+                        <div class="reply-authorinfo">
+                            <div class="reply-authorname">0000 홍길동</div>
+                            <div class="reply-authordate">2021.03.16</div>
+                        </div>
+                    </div>
+                    <div class="reply-settings">
+                        <button style="background:none; border: none;"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                        </svg></button>
+                        
+                        <ul>
+                            <li><a href="">신고</a></li>
+                            <li><a href="">삭제</a></li>
+                            <li><a href="">신고 리스트</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reply-content">
+                    제목으로 쓸 말이 없네요. 사람들이 저의 글을 봐
+                    주었으면 좋겠어요. 그리고 이것을 하는 게 정말 힘
+                    들다는 사실을 좀 알아 주었으면 좋겠어요.
+                </div>
+                <div class="reply-line"></div>
+            </div>
+            <div class="pagewrap">
+                <div class="pagebtns">
+                    <div class="pagefirst">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13.306" height="9.71" viewBox="0 0 13.306 9.71">
+                            <g id="arrow_back_ios-24px" transform="translate(3.596)">
+                                <path id="패스_33" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                            <g id="arrow_back_ios-24px-2" data-name="arrow_back_ios-24px">
+                                <path id="패스_33-2" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34-2" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                        </svg>
+
+                    </div>
+                    <div class="pageback">
+                        <svg id="arrow_back_ios-24px" xmlns="http://www.w3.org/2000/svg" width="13.5" height="13.5"
+                            viewBox="0 0 13.5 13.5">
+                            <path id="패스_33" data-name="패스 33" d="M0,0H13.5V13.5H0Z" fill="none" opacity="0.87" />
+                            <path id="패스_34" data-name="패스 34"
+                                d="M12.4,3.1l-1-1L5.84,7.669l5.569,5.569,1-1L7.831,7.669Z"
+                                transform="translate(-2.555 -0.919)" fill="#f6c700" />
+                        </svg>
+                    </div>
+                    <div class="pagebtn" id="page-selected">1</div>
+                    <!--선택된 페이지는 id를 page-selected로 바꿔주셈-->
+                    <div class="pagebtn">2</div>
+                    <div class="pagenext">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13.5" height="13.5" viewBox="0 0 13.5 13.5">
+                            <g id="arrow_back_ios-24px" transform="translate(13.5 13.5) rotate(180)">
+                                <path id="패스_33" data-name="패스 33" d="M0,0H13.5V13.5H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34" data-name="패스 34"
+                                    d="M12.4,3.1l-1-1L5.84,7.669l5.569,5.569,1-1L7.831,7.669Z"
+                                    transform="translate(-2.555 -0.919)" fill="#f6c700" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="pagelast">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13.306" height="9.71" viewBox="0 0 13.306 9.71">
+                            <g id="arrow_back_ios-24px" transform="translate(9.71 9.71) rotate(180)">
+                                <path id="패스_33" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                            <g id="arrow_back_ios-24px-2" data-name="arrow_back_ios-24px"
+                                transform="translate(13.306 9.71) rotate(180)">
+                                <path id="패스_33-2" data-name="패스 33" d="M0,0H9.71V9.71H0Z" fill="none" opacity="0.87" />
+                                <path id="패스_34-2" data-name="패스 34"
+                                    d="M4.721.716,4,0,0,4.005,4.005,8.01l.716-.716L1.432,4.005Z"
+                                    transform="translate(2.363 0.85)" fill="#f6c700" />
+                            </g>
+                        </svg>
+
+                    </div>
+
+                </div>
+                <div class="pageinfo">
+                    총 n 페이지, n 개 댓글
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <%- include("../modules/bottom_m.ejs") %>
+</body>
+
+</html>
